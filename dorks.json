@@ -1,0 +1,2452 @@
+[
+    {
+        "category": "Cloud Storage",
+        "query": "site:docs.google.com inurl:\"/d/\" \"{nome}\"",
+        "description": "Finds shared documents on Google Docs related to the target domain."
+    },
+    {
+        "category": "Cloud Storage",
+        "query": "site:onedrive.live.com \"{nome}\"",
+        "description": "Finds files hosted on OneDrive related to the target domain."
+    },
+    {
+        "category": "Cloud Storage",
+        "query": "site:dropbox.com/s \"{nome}\"",
+        "description": "Finds files hosted on Dropbox related to the target domain."
+    },
+    {
+        "category": "Cloud Storage",
+        "query": "site:box.com/s \"{nome}\"",
+        "description": "Finds files hosted on Box related to the target domain."
+    },
+    {
+        "category": "Cloud Storage",
+        "query": "site:dev.azure.com \"{nome}\"",
+        "description": "Finds repositories or projects on Azure DevOps related to the target domain."
+    },
+    {
+        "category": "Cloud Storage",
+        "query": "site:http://sharepoint.com \"{nome}\"",
+        "description": "Finds SharePoint sites related to the target domain."
+    },
+    {
+        "category": "Cloud Storage",
+        "query": "site:digitaloceanspaces.com \"{nome}\"",
+        "description": "Finds files hosted on DigitalOcean Spaces related to the target domain."
+    },
+    {
+        "category": "Cloud Storage",
+        "query": "site:firebaseio.com \"{nome}\"",
+        "description": "Finds Firebase databases related to the target domain."
+    },
+    {
+        "category": "Cloud Storage",
+        "query": "site:jfrog.io \"{nome}\"",
+        "description": "Finds Artifactory repositories related to the target domain."
+    },
+    {
+        "category": "Subdomain Enumeration",
+        "query": "site:{nome} -www -shop -share -ir -mfa",
+        "description": "Finds subdomains excluding common ones like www, shop, etc."
+    },
+    {
+        "category": "Sensitive Files",
+        "query": "site:{nome} ext:php inurl:?",
+        "description": "Finds PHP files with query parameters that may expose sensitive data."
+    },
+    {
+        "category": "API Discovery",
+        "query": "site:{nome} inurl:api | site:*/rest | site:*/v1 | site:*/v2 | site:*/v3",
+        "description": "Finds API endpoints exposed by the target domain."
+    },
+    {
+        "category": "Sensitive Files",
+        "query": "site:{nome} ext:log | ext:txt | ext:conf | ext:cnf | ext:ini | ext:env | ext:sh | ext:bak | ext:backup | ext:swp | ext:old | ext:~ | ext:git | ext:svn | ext:htpasswd | ext:htaccess | ext:json",
+        "description": "Finds sensitive files such as logs, configs, backups, etc."
+    },
+    {
+        "category": "Sensitive Directories",
+        "query": "inurl:conf | inurl:env | inurl:cgi | inurl:bin | inurl:etc | inurl:root | inurl:sql | inurl:backup | inurl:admin | inurl:php site:{nome}",
+        "description": "Finds directories that may contain sensitive configurations or backups."
+    },
+    {
+        "category": "Error Messages",
+        "query": "inurl:\"error\" | intitle:\"exception\" | intitle:\"failure\" | intitle:\"server at\" | inurl:exception | \"database error\" | \"SQL syntax\" | \"undefined index\" | \"unhandled exception\" | \"stack trace\" site:{nome}",
+        "description": "Finds error messages exposed on web pages."
+    },
+    {
+        "category": "Query Parameters",
+        "query": "inurl:q= | inurl:s= | inurl:search= | inurl:query= | inurl:keyword= | inurl:lang= inurl:& site:{nome}",
+        "description": "Finds URLs with query parameters that may be vulnerable to injection attacks."
+    },
+    {
+        "category": "Redirect Parameters",
+        "query": "inurl:url= | inurl:return= | inurl:next= | inurl:redirect= | inurl:redir= | inurl:ret= | inurl:r2= | inurl:page= inurl:& inurl:http site:{nome}",
+        "description": "Finds URLs with redirect parameters that may be vulnerable to open redirects."
+    },
+    {
+        "category": "ID Parameters",
+        "query": "inurl:id= | inurl:pid= | inurl:category= | inurl:cat= | inurl:action= | inurl:sid= | inurl:dir= inurl:& site:{nome}",
+        "description": "Finds URLs with ID parameters that may be vulnerable to IDOR."
+    },
+    {
+        "category": "Path Parameters",
+        "query": "inurl:http | inurl:url= | inurl:path= | inurl:dest= | inurl:html= | inurl:data= | inurl:domain= | inurl:page= inurl:& site:{nome}",
+        "description": "Finds URLs with path parameters that may be vulnerable to path traversal."
+    },
+    {
+        "category": "Command Execution",
+        "query": "inurl:cmd | inurl:exec= | inurl:query= | inurl:code= | inurl:do= | inurl:run= | inurl:read= | inurl:ping= inurl:& site:{nome}",
+        "description": "Finds URLs with command execution parameters that may be vulnerable to RCE."
+    },
+    {
+        "category": "File Inclusion",
+        "query": "inurl:include | inurl:dir | inurl:detail= | inurl:file= | inurl:folder= | inurl:inc= | inurl:locate= | inurl:doc= | inurl:conf= inurl:& site:{nome}",
+        "description": "Finds URLs with file inclusion parameters that may be vulnerable to LFI/RFI."
+    },
+    {
+        "category": "File Uploads",
+        "query": "site:{nome} \"choose file\"",
+        "description": "Finds file upload forms that may be vulnerable to malicious uploads."
+    },
+    {
+        "category": "API Documentation",
+        "query": "inurl:apidocs | inurl:api-docs | inurl:swagger | inurl:api-explorer site:{nome}",
+        "description": "Finds API documentation that may expose sensitive endpoints."
+    },
+    {
+        "category": "Login Pages",
+        "query": "inurl:login | inurl:signin | intitle:login | intitle:signin | inurl:secure site:{nome}",
+        "description": "Finds login pages that may be vulnerable to brute force or credential stuffing."
+    },
+    {
+        "category": "Development Environments",
+        "query": "inurl:test | inurl:env | inurl:dev | inurl:staging | inurl:sandbox | inurl:debug | inurl:temp | inurl:internal | inurl:demo site:{nome}",
+        "description": "Finds development or staging environments that may expose sensitive data."
+    },
+    {
+        "category": "Sensitive Documents",
+        "query": "site:{nome} ext:txt | ext:pdf | ext:xml | ext:xls | ext:xlsx | ext:ppt | ext:pptx | ext:doc | ext:docx",
+        "description": "Finds sensitive documents such as PDFs, Excel sheets, Word files, etc."
+    },
+    {
+        "category": "Sensitive Parameters",
+        "query": "inurl:email= | inurl:phone= | inurl:password= | inurl:secret= inurl:& site:{nome}",
+        "description": "Finds URLs with sensitive parameters that may expose user data."
+    },
+    {
+        "category": "Content Management Systems",
+        "query": "inurl:/content/usergenerated | inurl:/content/dam | inurl:/jcr:content | inurl:/libs/granite | inurl:/etc/clientlibs | inurl:/content/geometrixx | inurl:/bin/wcm | inurl:/crx/de site:{nome}",
+        "description": "Finds CMS-specific paths that may expose sensitive content."
+    },
+    {
+        "category": "Bug Bounty Reports",
+        "query": "site:openbugbounty.org inurl:reports intext:\"{nome}\"",
+        "description": "Finds bug bounty reports related to the target domain."
+    },
+    {
+        "category": "Google Groups",
+        "query": "site:groups.google.com \"{nome}\"",
+        "description": "Finds discussions or posts on Google Groups related to the target domain."
+    },
+    {
+        "category": "Code Sharing Platforms",
+        "query": "site:pastebin.com \"{nome}\"",
+        "description": "Finds code snippets or configurations shared on Pastebin."
+    },
+    {
+        "category": "Code Sharing Platforms",
+        "query": "site:jsfiddle.net \"{nome}\"",
+        "description": "Finds code snippets or configurations shared on JSFiddle."
+    },
+    {
+        "category": "Code Sharing Platforms",
+        "query": "site:codebeautify.org \"{nome}\"",
+        "description": "Finds code snippets or configurations shared on Code Beautify."
+    },
+    {
+        "category": "Code Sharing Platforms",
+        "query": "site:codepen.io \"{nome}\"",
+        "description": "Finds code snippets or configurations shared on CodePen."
+    },
+    {
+        "category": "Cloud Storage",
+        "query": "site:s3.amazonaws.com \"{nome}\"",
+        "description": "Finds files hosted on Amazon S3 buckets related to the target domain."
+    },
+    {
+        "category": "Cloud Storage",
+        "query": "site:blob.core.windows.net \"{nome}\"",
+        "description": "Finds files hosted on Azure Blob Storage related to the target domain."
+    },
+    {
+        "category": "Cloud Storage",
+        "query": "site:googleapis.com \"{nome}\"",
+        "description": "Finds APIs or files hosted on Google APIs related to the target domain."
+    },
+    {
+        "category": "Cloud Storage",
+        "query": "site:drive.google.com \"{nome}\"",
+        "description": "Finds files hosted on Google Drive related to the target domain."
+    },
+    {
+        "category": "Cloud Storage",
+        "query": "site:s3-external-1.amazonaws.com \"{nome}\"",
+        "description": "Finds files hosted on Amazon S3 external buckets related to the target domain."
+    },
+    {
+        "category": "Cloud Storage",
+        "query": "site:s3.dualstack.us-east-1.amazonaws.com \"{nome}\"",
+        "description": "Finds files hosted on Amazon S3 dual-stack buckets related to the target domain."
+    },
+     {
+        "category": "WordPress Identification",
+        "query": "site:{nome} \"is proudly powered by WordPress\"",
+        "description": "Finds websites running WordPress."
+    },
+    {
+        "category": "WordPress Plugins",
+        "query": "site:{nome} inurl:\"plugins/wp-db-backup/wp-db-backup.php\"",
+        "description": "Finds WordPress database backup plugin pages."
+    },
+    {
+        "category": "Database Backups",
+        "query": "site:{nome} filetype:sql inurl:wp-content/backup-*",
+        "description": "Finds SQL database backups in WordPress directories."
+    },
+    {
+        "category": "Database Backups",
+        "query": "site:{nome} filetype:sql inurl:wp-content/*",
+        "description": "Finds SQL files in WordPress content directories."
+    },
+    {
+        "category": "Configuration Files",
+        "query": "site:{nome} filetype:txt inurl:wp-config.txt",
+        "description": "Finds exposed `wp-config.txt` files."
+    },
+    {
+        "category": "Configuration Files",
+        "query": "site:{nome} intext:\"the WordPress\" inurl:wp-config ext:txt",
+        "description": "Finds `wp-config` files with sensitive information."
+    },
+    {
+        "category": "Directory Listings",
+        "query": "site:{nome} intitle:\"Index of\" wp-admin",
+        "description": "Finds directory listings for `wp-admin`."
+    },
+    {
+        "category": "Directory Listings",
+        "query": "site:{nome} intitle:\"Index of\" wp-config",
+        "description": "Finds directory listings for `wp-config`."
+    },
+    {
+        "category": "Directory Listings",
+        "query": "site:{nome} intitle:\"Index of\" wp-config.php",
+        "description": "Finds directory listings for `wp-config.php`."
+    },
+    {
+        "category": "Directory Listings",
+        "query": "site:{nome} intitle:\"Index of\" wp-content",
+        "description": "Finds directory listings for `wp-content`."
+    },
+    {
+        "category": "Directory Listings",
+        "query": "site:{nome} intitle:\"Index of\" wp-upload",
+        "description": "Finds directory listings for `wp-upload`."
+    },
+    {
+        "category": "WordPress Setup",
+        "query": "site:{nome} inurl:\"/wp-admin/setup-config.php\" intitle:\"Setup Configuration File\"",
+        "description": "Finds WordPress setup configuration pages."
+    },
+    {
+        "category": "WordPress Plugins",
+        "query": "site:{nome} inurl:\"/wp-content/plugins/wp-mobile-detector/\" ext:php",
+        "description": "Finds WordPress mobile detector plugin files."
+    },
+    {
+        "category": "WordPress Plugins",
+        "query": "site:{nome} inurl:\"/wp-content/plugins/wp-shopping-cart/\"",
+        "description": "Finds WordPress shopping cart plugin directories."
+    },
+    {
+        "category": "Backups",
+        "query": "site:{nome} inurl:\"/wp-content/uploads/db-backup\"",
+        "description": "Finds database backups in WordPress uploads."
+    },
+    {
+        "category": "Backups",
+        "query": "site:{nome} inurl:\"/wp-content/uploads/levoslideshow/\"",
+        "description": "Finds slideshow backups in WordPress uploads."
+    },
+    {
+        "category": "Backups",
+        "query": "site:{nome} inurl:\"/wp-content/wpclone-temp/wpclone_backup/\"",
+        "description": "Finds WP Clone backups in WordPress directories."
+    },
+    {
+        "category": "API Endpoints",
+        "query": "site:{nome} inurl:\"/wp-json/\" -wordpress",
+        "description": "Finds WordPress JSON API endpoints."
+    },
+    {
+        "category": "Password Recovery",
+        "query": "site:{nome} inurl:\"/wp-login.php?action=lostpassword\"",
+        "description": "Finds WordPress password recovery pages."
+    },
+    {
+        "category": "Sensitive Logs",
+        "query": "site:{nome} inurl:\"wp-content/uploads/file-manager/log.txt\"",
+        "description": "Finds file manager logs in WordPress uploads."
+    },
+    {
+        "category": "Private Content",
+        "query": "site:{nome} inurl:\"wp-content/uploads/private\"",
+        "description": "Finds private content in WordPress uploads."
+    },
+    {
+        "category": "SEO Plugins",
+        "query": "site:{nome} inurl:\"wp-content/plugins/all-in-one-seo-pack\"",
+        "description": "Finds All in One SEO Pack plugin directories."
+    },
+    {
+        "category": "File Downloads",
+        "query": "site:{nome} inurl:\"wp-download.php?dl_id=\"",
+        "description": "Finds WordPress file download scripts."
+    },
+    {
+        "category": "Configuration Files",
+        "query": "site:{nome} inurl:\"wp-license.php?file=../..//wp-config\"",
+        "description": "Finds exposed `wp-license.php` files."
+    },
+    {
+        "category": "Audit Logs",
+        "query": "site:{nome} inurl:\"wp-security-audit-log\" ext:log",
+        "description": "Finds WordPress security audit logs."
+    },
+    {
+        "category": "RevSlider Exploits",
+        "query": "site:{nome} inurl:/wp-admin/admin-ajax.php?action=revslider_ajax_action",
+        "description": "Finds RevSlider AJAX action endpoints."
+    },
+    {
+        "category": "Admin Pages",
+        "query": "site:{nome} inurl:/wp-admin/admin.php intitle:\"Log In\"",
+        "description": "Finds WordPress admin login pages."
+    },
+    {
+        "category": "Plugin Installation",
+        "query": "site:{nome} inurl:/wp-admin/includes/plugin-install.php",
+        "description": "Finds WordPress plugin installation pages."
+    },
+    {
+        "category": "Post Editing",
+        "query": "site:{nome} inurl:/wp-admin/post.php?post=",
+        "description": "Finds WordPress post editing pages."
+    },
+    {
+        "category": "Backups",
+        "query": "site:{nome} inurl:/wp-content/ai1wm-backups + wpress",
+        "description": "Finds AI1WM backups in WordPress directories."
+    },
+    {
+        "category": "Plugins",
+        "query": "site:{nome} inurl:/wp-content/plugins/fgallery/",
+        "description": "Finds WordPress FGallery plugin directories."
+    },
+    {
+        "category": "Marketing Plugins",
+        "query": "site:{nome} inurl:/wp-content/plugins/inboundio-marketing/",
+        "description": "Finds Inboundio Marketing plugin directories."
+    },
+    {
+        "category": "SEO Plugins",
+        "query": "site:{nome} inurl:/wp-content/plugins/seo-pressor/classes/",
+        "description": "Finds SEO Pressor plugin directories."
+    },
+    {
+        "category": "Video Plugins",
+        "query": "site:{nome} inurl:/wp-content/plugins/video-synchro-pdf",
+        "description": "Finds Video Synchro PDF plugin directories."
+    },
+    {
+        "category": "Security Plugins",
+        "query": "site:{nome} inurl:/wp-content/plugins/wpSS/",
+        "description": "Finds WPSS security plugin directories."
+    },
+    {
+        "category": "Themes",
+        "query": "site:{nome} inurl:/wp-content/themes/tigin/",
+        "description": "Finds Tigin theme directories."
+    },
+    {
+        "category": "Themes",
+        "query": "site:{nome} inurl:/wp-content/themes/xunjin/",
+        "description": "Finds Xunjin theme directories."
+    },
+    {
+        "category": "Uploads",
+        "query": "site:{nome} inurl:/wp-content/uploads/ filetype:sql",
+        "description": "Finds SQL files in WordPress uploads."
+    },
+    {
+        "category": "Form Submissions",
+        "query": "site:{nome} inurl:/wp-content/uploads/ninja-forms/ intitle:\"index of\"",
+        "description": "Finds Ninja Forms submissions in WordPress uploads."
+    },
+    {
+        "category": "Backups",
+        "query": "site:{nome} inurl:/wp-content/uploads/wp-backup-plus/",
+        "description": "Finds WP Backup Plus backups in WordPress uploads."
+    },
+    {
+        "category": "Caching",
+        "query": "site:{nome} inurl:/wp-content/w3tc/dbcache/",
+        "description": "Finds W3TC database cache files."
+    },
+    {
+        "category": "Backups",
+        "query": "site:{nome} inurl:/wp-content/wpbackitup_backups",
+        "description": "Finds WPBackItUp backups in WordPress directories."
+    },
+    {
+        "category": "Certificates",
+        "query": "site:{nome} inurl:/wp-includes/certificates/",
+        "description": "Finds certificate files in WordPress includes."
+    },
+    {
+        "category": "User Enumeration",
+        "query": "site:{nome} inurl:/wp-json/wp/v2/users/ \"id\":1,\"name\":\" -wordpress.stackexchange.com -stackoverflow.com",
+        "description": "Finds WordPress user enumeration via JSON API."
+    },
+    {
+        "category": "Login Pages",
+        "query": "site:{nome} inurl:/wp/ + \"Login\"",
+        "description": "Finds WordPress login pages."
+    },
+    {
+        "category": "Admin Pages",
+        "query": "site:{nome} inurl:/wp/wp-admin/",
+        "description": "Finds WordPress admin pages."
+    },
+    {
+        "category": "Logs",
+        "query": "site:{nome} inurl:log -intext:log ext:log inurl:wp-",
+        "description": "Finds WordPress-related log files."
+    },
+    {
+        "category": "CSS Files",
+        "query": "site:{nome} inurl:wp-admin/ intext:css/",
+        "description": "Finds CSS files in WordPress admin directories."
+    },
+    {
+        "category": "AJAX Endpoints",
+        "query": "site:{nome} inurl:wp-admin/admin-ajax.php inurl:wp-config.php",
+        "description": "Finds AJAX endpoints exposing `wp-config.php`."
+    },
+    {
+        "category": "Configuration Files",
+        "query": "site:{nome} inurl:wp-config -intext:wp-config \"'DB_PASSWORD'\"",
+        "description": "Finds exposed `wp-config` files with database passwords."
+    },
+    {
+        "category": "Backup Files",
+        "query": "site:{nome} inurl:wp-config-backup.txt",
+        "description": "Finds `wp-config-backup.txt` files."
+    },
+    {
+        "category": "Backup Files",
+        "query": "site:{nome} inurl:wp-config.bak",
+        "description": "Finds `wp-config.bak` files."
+    },
+    {
+        "category": "Configuration Files",
+        "query": "site:{nome} inurl:wp-config.php intext:DB_PASSWORD -stackoverflow -wpbeginner",
+        "description": "Finds `wp-config.php` files with database passwords."
+    },
+    {
+        "category": "Backup Directories",
+        "query": "site:{nome} inurl:wp-content intext:backup-db",
+        "description": "Finds backup directories in WordPress content."
+    },
+    {
+        "category": "Debug Logs",
+        "query": "site:{nome} inurl:wp-content/debug.log",
+        "description": "Finds WordPress debug logs."
+    },
+    {
+        "category": "Age Verification",
+        "query": "site:{nome} inurl:wp-content/plugins/age-verification/age-verification.php",
+        "description": "Finds Age Verification plugin files."
+    },
+    {
+        "category": "Sensitive Uploads",
+        "query": "site:{nome} inurl:wp-content/uploads filetype:xls | filetype:xlsx password",
+        "description": "Finds Excel files with passwords in WordPress uploads."
+    },
+    {
+        "category": "Database Backups",
+        "query": "site:{nome} inurl:wp-content/uploads/dump.sql",
+        "description": "Finds SQL dump files in WordPress uploads."
+    },
+    {
+        "category": "OPML Files",
+        "query": "site:{nome} inurl:wp-links-opml.php",
+        "description": "Finds WordPress OPML files."
+    },
+    {
+        "category": "Registration Pages",
+        "query": "site:{nome} inurl:wp-login.php +Register Username Password \"remember me\" -echo -trac -footwear",
+        "description": "Finds WordPress registration pages."
+    },
+    {
+        "category": "Registration Pages",
+        "query": "site:{nome} inurl:wp-login.php Register Username Password -echo",
+        "description": "Finds WordPress registration pages."
+    },
+    {
+        "category": "Registration Pages",
+        "query": "site:{nome} inurl:wp-login.php?action=register",
+        "description": "Finds WordPress registration pages."
+    },
+    {
+        "category": "Mail Errors",
+        "query": "site:{nome} inurl:wp-mail.php + \"There doesn't seem to be any new mail.\"",
+        "description": "Finds WordPress mail errors."
+    },
+    {
+        "category": "Login Pages",
+        "query": "site:{nome} inurl:wp/wp-login.php",
+        "description": "Finds WordPress login pages."
+    },
+    {
+        "category": "Backup Files",
+        "query": "site:{nome} site:*/wordpress/wordpress.bak/",
+        "description": "Finds WordPress backup files."
+    },
+    {
+        "category": "Installation Pages",
+        "query": "site:{nome} site:*/wp-admin/install.php intitle:WordPress Installation",
+        "description": "Finds WordPress installation pages."
+    },
+    {
+        "category": "Repair Pages",
+        "query": "site:{nome} site:*/wp-admin/maint/repair.php intext:\"define(WP_ALLOW_REPAIR,true);\"",
+        "description": "Finds WordPress repair pages."
+    },
+    {
+        "category": "User Editing",
+        "query": "site:{nome} site:*/wp-admin/user-edit.php",
+        "description": "Finds WordPress user editing pages."
+    },
+    {
+        "category": "Content Directories",
+        "query": "site:{nome} site:*/wp-contents/ inurl:/wp-contents/",
+        "description": "Finds WordPress content directories."
+    },
+    {
+        "category": "Includes Directories",
+        "query": "site:{nome} site:*/wp-includes/ inurl:/wp-includes/",
+        "description": "Finds WordPress includes directories."
+    },
+    {
+        "category": "Error Logs",
+        "query": "site:{nome} site:*/wp-includes/Requests/php_errorlog",
+        "description": "Finds PHP error logs in WordPress includes."
+    },
+    {
+        "category": "Login Redirects",
+        "query": "site:{nome} site:*/wp-login?redirect_to= intitle:\"login\"",
+        "description": "Finds WordPress login redirects."
+    },
+    {
+        "category": "Settings Files",
+        "query": "site:{nome} site:*/wp-settings.php",
+        "description": "Finds WordPress settings files."
+    },
+    {
+        "category": "Backup Directories",
+        "query": "site:{nome} inurl:wp-content/ inurl:backups",
+        "description": "Finds backup directories in WordPress content."
+    },
+    {
+        "category": "Directory Listings",
+        "query": "site:{nome} intitle:\"Index of\" inurl:/wp-content/uploads",
+        "description": "Finds directory listings for WordPress uploads."
+    },
+    {
+    "category": "MySQL Files",
+    "query": "site:{nome} mysql history files filetype:txt",
+    "description": "Finds MySQL history files in text format."
+    },
+    {
+    "category": "MySQL Passwords",
+    "query": "site:{nome} mysql intext:passwords filetype:txt",
+    "description": "Finds MySQL passwords stored in text files."
+    },
+    {
+    "category": "MySQL Root Files",
+    "query": "site:{nome} mysql root filetype:txt",
+    "description": "Finds MySQL root credentials in text files."
+    },
+    {
+    "category": "MySQL Configuration",
+    "query": "site:{nome} mysql filetype:xml",
+    "description": "Finds MySQL configuration files in XML format."
+    },
+    {
+    "category": "MySQL Settings",
+    "query": "site:{nome} mysql settings filetype:xml",
+    "description": "Finds MySQL settings files in XML format."
+    },
+    {
+    "category": "MySQL Secrets",
+    "query": "site:{nome} mysql secrect password",
+    "description": "Finds MySQL secret passwords."
+    },
+    {
+    "category": "PostgreSQL Credentials",
+    "query": "site:{nome} \"POSTGRES_PASSWORD=\" ext:txt | ext:cfg | ext:env | ext:ini | ext:yml | ext:sql -git -gitlab",
+    "description": "Finds PostgreSQL password files in various formats."
+    },
+    {
+    "category": "PostgreSQL JDBC Connections",
+    "query": "site:{nome} jdbc:postgresql://localhost: + username + password ext:yml | ext:java -git -gitlab",
+    "description": "Finds PostgreSQL JDBC connection strings with credentials."
+    },
+    {
+    "category": "PostgreSQL Errors",
+    "query": "site:{nome} \"PostgreSQL query failed: ERROR: parser: parse error\"",
+    "description": "Finds PostgreSQL query errors."
+    },
+    {
+    "category": "PostgreSQL Connection Errors",
+    "query": "site:{nome} \"Warning: pg_connect(): Unable to connect to PostgreSQL server: FATAL\"",
+    "description": "Finds PostgreSQL connection errors."
+    },
+    {
+    "category": "PostgreSQL Invalid Results",
+    "query": "site:{nome} \"Supplied argument is not a valid PostgreSQL result\"",
+    "description": "Finds invalid PostgreSQL result errors."
+    },
+    {
+    "category": "AWS Secrets",
+    "query": "site:{nome} aws-secret",
+    "description": "Finds AWS secret keys or files."
+    },
+    {
+    "category": "AWS S3 SQL Backups",
+    "query": "site:{nome} s3 site:amazonaws.com filetype:sql",
+    "description": "Finds SQL backups stored in AWS S3 buckets."
+    },
+    {
+    "category": "AWS Secret Keys",
+    "query": "site:{nome} aws SECRET_KEY",
+    "description": "Finds AWS secret keys."
+    },
+    {
+    "category": "AWS Session Tokens",
+    "query": "site:{nome} aws session_token access_key",
+    "description": "Finds AWS session tokens and access keys."
+    },
+    {
+    "category": "AWS Access Keys",
+    "query": "site:{nome} aws_access_key_id",
+    "description": "Finds AWS access key IDs."
+    },
+    {
+    "category": "AWS Secret Access Keys",
+    "query": "site:{nome} aws_secret_access_key",
+    "description": "Finds AWS secret access keys."
+    },
+    {
+    "category": "AWS Security Tokens",
+    "query": "site:{nome} AWS_SECURITY_TOKEN",
+    "description": "Finds AWS security tokens."
+    },
+    {
+    "category": "AWS S3 Secrets",
+    "query": "site:{nome} AWS_S3_SECRET_ACCESS_KEY",
+    "description": "Finds AWS S3 secret access keys."
+    },
+    {
+    "category": "AWS Artifacts Keys",
+    "query": "site:{nome} ARTIFACTS_AWS_ACCESS_KEY_ID=",
+    "description": "Finds AWS artifacts access key IDs."
+    },
+    {
+    "category": "AWS Artifacts Secrets",
+    "query": "site:{nome} ARTIFACTS_AWS_SECRET_ACCESS_KEY=",
+    "description": "Finds AWS artifacts secret access keys."
+    },
+    {
+    "category": "AWS Secrets",
+    "query": "site:{nome} AWSSECRETKEY=",
+    "description": "Finds AWS secret keys."
+    },
+    {
+    "category": "AWS SES Secrets",
+    "query": "site:{nome} AWS_SES_SECRET_ACCESS_KEY=",
+    "description": "Finds AWS SES secret access keys."
+    },
+    {
+    "category": "AWS SES Access Keys",
+    "query": "site:{nome} AWS_SES_ACCESS_KEY_ID=",
+    "description": "Finds AWS SES access key IDs."
+    },
+    {
+    "category": "Mac OS Web Sharing",
+    "query": "site:{nome} \"About Mac OS Personal Web Sharing\"",
+    "description": "Finds Mac OS personal web sharing pages."
+    },
+    {
+    "category": "Web Server Indexes",
+    "query": "site:{nome} \"AnWeb/1.42h\" intitle:index.of",
+    "description": "Finds AnWeb server directory indexes."
+    },
+    {
+    "category": "Google Bot Blocks",
+    "query": "site:{nome} \"Application Blocked!\" \"Google bot\"",
+    "description": "Finds blocked Google bot requests."
+    },
+    {
+    "category": "CERN HTTPD Servers",
+    "query": "site:{nome} \"CERN httpd 3.0B (VAX VMS)\"",
+    "description": "Finds CERN HTTPD servers."
+    },
+    {
+    "category": "Cisco JSP Files",
+    "query": "site:{nome} \"Cisco Systems, Inc. All Rights Reserved.\" -cisco.com filetype:jsp",
+    "description": "Finds Cisco-related JSP files."
+    },
+    {
+    "category": "Servlet-to-JSP Invocations",
+    "query": "site:{nome} \"I have been invoked by servletToJSP\"",
+    "description": "Finds servlet-to-JSP invocation pages."
+    },
+    {
+    "category": "JRun Web Server Indexes",
+    "query": "site:{nome} \"JRun Web Server\" intitle:index.of",
+    "description": "Finds JRun web server directory indexes."
+    },
+    {
+    "category": "OmniHTTPd Indexes",
+    "query": "site:{nome} \"OmniHTTPd/2.10\" intitle:index.of",
+    "description": "Finds OmniHTTPd server directory indexes."
+    },
+    {
+    "category": "OpenSA Indexes",
+    "query": "site:{nome} \"OpenSA/1.0.4\" intitle:index.of",
+    "description": "Finds OpenSA server directory indexes."
+    },
+    {
+    "category": "PHP Info Pages",
+    "query": "site:{nome} \"PHP Credits\" \"Configuration\" \"PHP Core\" ext:php inurl:info",
+    "description": "Finds PHP info pages."
+    },
+    {
+    "category": "123LogAnalyzer",
+    "query": "site:{nome} \"Powered by 123LogAnalyzer\"",
+    "description": "Finds websites powered by 123LogAnalyzer."
+    },
+    {
+    "category": "BOINC",
+    "query": "site:{nome} \"Powered by BOINC\"",
+    "description": "Finds websites powered by BOINC."
+    },
+    {
+    "category": "phpBB Forums",
+    "query": "site:{nome} \"Powered by phpBB\" inurl:\"index.php?s\" OR inurl:\"index.php?style\"",
+    "description": "Finds phpBB forums."
+    },
+    {
+    "category": "vShare Websites",
+    "query": "site:{nome} \"Powered by vShare\"",
+    "description": "Finds websites powered by vShare."
+    },
+    {
+    "category": "Wix Websites",
+    "query": "site:{nome} \"Proudly created with Wix.com\"",
+    "description": "Finds websites created with Wix."
+    },
+    {
+    "category": "RDServer Product Information",
+    "query": "site:{nome} \"RDServer Product information\" | inurl:\"/rdagent.jsp\"",
+    "description": "Finds RDServer product information pages."
+    },
+    {
+    "category": "Red Hat Secure Servers",
+    "query": "site:{nome} \"Red Hat Secure/2.0\"",
+    "description": "Finds Red Hat Secure servers."
+    },
+    {
+    "category": "NTRIP Caster Tables",
+    "query": "site:{nome} \"NTRIP Caster Table Contents\" \"This is a SNIP NTRIP Caster\"",
+    "description": "Finds NTRIP caster table contents."
+    },
+    {
+    "category": "Netware Home Pages",
+    "query": "site:{nome} \"Netware * Home\" inurl:nav.html",
+    "description": "Finds Netware home pages."
+    },
+    {
+    "category": "Novell WebAccess",
+    "query": "site:{nome} \"Novell, Inc\" WEBACCESS Username Password \"Version *.*\" Copyright -inurl:help -guides|guide",
+    "description": "Finds Novell WebAccess login pages."
+    },
+    {
+    "category": "Directory Listings",
+    "query": "site:{nome} \"Switch to table format\" inurl:table|plain",
+    "description": "Finds directory listings with table formats."
+    },
+    {
+    "category": "OpenX Servers",
+    "query": "site:{nome} \"This server is operated by OpenX.\"",
+    "description": "Finds OpenX server instances."
+    },
+    {
+    "category": "Wowza Streaming Engines",
+    "query": "site:{nome} \"Wowza Streaming Engine 4 Developer Edition\"",
+    "description": "Finds Wowza Streaming Engine installations."
+    },
+    {
+    "category": "Private Directories",
+    "query": "site:{nome} \"index of /private\" -site:net -site:com -site:org",
+    "description": "Finds private directories."
+    },
+    {
+    "category": "OpenBSD Servers",
+    "query": "site:{nome} \"powered by openbsd\" +\"powered by apache\"",
+    "description": "Finds OpenBSD-powered Apache servers."
+    },
+    {
+    "category": "ShoutStats",
+    "query": "site:{nome} \"powered by\" \"shoutstats\" hourly daily",
+    "description": "Finds ShoutStats analytics pages."
+    },
+    {
+    "category": "Apache Test Pages",
+    "query": "site:{nome} \"seeing this instead\" intitle:\"test page for apache\"",
+    "description": "Finds Apache test pages."
+    },
+    {
+    "category": "CoinHive Mining Scripts",
+    "query": "site:{nome} \"var miner = new CoinHive\" intext:document.domain",
+    "description": "Finds CoinHive mining scripts."
+    },
+    {
+    "category": "Proxy Errors",
+    "query": "site:{nome} (intitle:\"502 Proxy Error\")|(intitle:\"503 Proxy Error\") \"The proxy server could not handle the request\" -topic -mail -4suite -list -site:geocrawler.co",
+    "description": "Finds proxy server error pages."
+    },
+    {
+    "category": "Cobalt Servers",
+    "query": "site:{nome} (inurl:81-cobalt | inurl:cgi-bin/.cobalt)",
+    "description": "Finds Cobalt server directories."
+    },
+    {
+    "category": "Coldbox Frameworks",
+    "query": "site:{nome} Coldbox | contentbox | commandbox \"Powered by ContentBox\"",
+    "description": "Finds Coldbox framework installations."
+    },
+    {
+    "category": "STIBO Systems",
+    "query": "site:{nome} Fwd: intitle:\"STEP by STIBO Systems\" \"Launch STEPworkbench\" \"Web UI Component Report\"",
+    "description": "Finds STIBO Systems STEP pages."
+    },
+    {
+    "category": "Googlebot User Agents",
+    "query": "site:{nome} HTTP_USER_AGENT=Googlebot",
+    "description": "Finds Googlebot user agent logs."
+    },
+    {
+    "category": "RaidenHTTPD Servers",
+    "query": "site:{nome} Powered.by.RaidenHTTPD intitle:index.of",
+    "description": "Finds RaidenHTTPD server directories."
+    },
+    {
+    "category": "XAMPP Installations",
+    "query": "site:{nome} XAMPP \"inurl:xampp/index\"",
+    "description": "Finds XAMPP installation pages."
+    },
+    {
+    "category": "Printer Configurations",
+    "query": "site:{nome} aboutprinter.shtml",
+    "description": "Finds printer configuration pages."
+    },
+    {
+    "category": "SFTP Configurations",
+    "query": "site:{nome} allintext:\"Index Of\" \"sftp-config.json\"",
+    "description": "Finds sftp-config.json files."
+    },
+    {
+    "category": "LionMax Software",
+    "query": "site:{nome} allintext:\"Powered by LionMax Software\" \"WWW File Share\"",
+    "description": "Finds LionMax Software file shares."
+    },
+    {
+    "category": "Pi-hole Admin Consoles",
+    "query": "site:{nome} allintitle:\"Pi-hole Admin Console\"",
+    "description": "Finds Pi-hole admin consoles."
+    },
+    {
+    "category": "Netscape FastTrack Servers",
+    "query": "site:{nome} allintitle:Netscape FastTrack Server Home Page",
+    "description": "Finds Netscape FastTrack servers."
+    },
+    {
+    "category": "nsconfig Files",
+    "query": "site:{nome} allinurl:\".nsconfig\" -sample -howto -tutorial",
+    "description": "Finds nsconfig files."
+    },
+    {
+    "category": "PHP Info Pages",
+    "query": "site:{nome} ext:php | intitle:phpinfo \"published by the PHP Group\"",
+    "description": "Finds PHP info pages."
+    },
+    {
+    "category": "WSDL Files",
+    "query": "site:{nome} ext:svc inurl:wsdl",
+    "description": "Finds WSDL service files."
+    },
+    {
+    "category": "ASMX Endpoints",
+    "query": "site:{nome} filetype:asmx inurl:(_vti_bin|api|webservice)",
+    "description": "Finds ASMX web service endpoints."
+    },
+    {
+    "category": "ELMAH Logs",
+    "query": "site:{nome} filetype:axd inurl:/elmah.axd",
+    "description": "Finds ELMAH error logs."
+    },
+    {
+    "category": "Fitweb Servers",
+    "query": "site:{nome} fitweb-wwws * server at intitle:index.of",
+    "description": "Finds Fitweb server directories."
+    },
+    {
+    "category": "Cott Systems",
+    "query": "site:{nome} intext:\" - 2019 Cott Systems, Inc.\"",
+    "description": "Finds Cott Systems pages."
+    },
+    {
+    "category": "IIS 5.0 Errors",
+    "query": "site:{nome} intext:\"404 Object Not Found\" Microsoft-IIS/5.0",
+    "description": "Finds IIS 5.0 404 errors."
+    },
+    {
+    "category": "eVetSites",
+    "query": "site:{nome} intext:\"Brought to you by eVetSites\"",
+    "description": "Finds eVetSites pages."
+    },
+    {
+    "category": "Healthy Devices",
+    "query": "site:{nome} intext:\"Healthy\" + \"Product model\" + \" Client IP\" + \"Ethernet\"",
+    "description": "Finds device health status pages."
+    },
+    {
+    "category": "Quantum CMS",
+    "query": "site:{nome} intext:\"Powered by (Quantum | Quantum CMS | CMS)",
+    "description": "Finds Quantum CMS installations."
+    },
+    {
+    "category": "Abyss Web Server",
+    "query": "site:{nome} intext:\"Powered by Abyss Web Server\"",
+    "description": "Finds Abyss Web Server installations."
+    },
+    {
+    "category": "GetSimple CMS",
+    "query": "site:{nome} intext:\"Powered by GetSimple\" -site:get-simple.info",
+    "description": "Finds GetSimple CMS installations."
+    },
+    {
+    "category": "Nesta CMS",
+    "query": "site:{nome} intext:\"Powered by Nesta\"",
+    "description": "Finds Nesta CMS installations."
+    },
+    {
+    "category": "Sentora CMS",
+    "query": "site:{nome} intext:\"Powered by Sentora\" -github.com",
+    "description": "Finds Sentora CMS installations."
+    },
+    {
+    "category": "Typesetter CMS",
+    "query": "site:{nome} intext:\"Powered by Typesetter\"",
+    "description": "Finds Typesetter CMS installations."
+    },
+    {
+    "category": "phpSQLiteCMS",
+    "query": "site:{nome} intext:\"Powered by phpSQLiteCMS\" | intitle:\"phpSQLiteCMS - A simple & lightweight CMS\"",
+    "description": "Finds phpSQLiteCMS installations."
+    },
+    {
+    "category": "SonarQube",
+    "query": "site:{nome} intext:\"SonarQube\" + \"by SonarSource SA.\" + \"LGPL v3\"",
+    "description": "Finds SonarQube installations."
+    },
+    {
+    "category": "Multicast Groups",
+    "query": "site:{nome} intext:\"Target Multicast Group\" \"beacon\"",
+    "description": "Finds multicast group configurations."
+    },
+    {
+    "category": "Apache Default Pages",
+    "query": "site:{nome} intext:\"This is the default welcome page used to test the correct operation of the Apache2 server\"",
+    "description": "Finds Apache default welcome pages."
+    },
+    {
+    "category": "CodeIgniter",
+    "query": "site:{nome} intext:\"Welcome to CodeIgniter!\"",
+    "description": "Finds CodeIgniter installations."
+    },
+    {
+    "category": "Apache Directory Listings",
+    "query": "site:{nome} intext:\"index of /\" \"Index of\" access_log",
+    "description": "Finds Apache directory listings."
+    },
+    {
+    "category": "Apache Versions",
+    "query": "site:{nome} intext:Apache/2.2.29 (Unix) mod_ssl/2.2.29 | intitle:\"Index of /\"",
+    "description": "Finds Apache server versions."
+    },
+    {
+    "category": "nginx Welcome Pages",
+    "query": "site:{nome} intitle: \"Welcome to nginx!\" + \"Thank you for using nginx.\"",
+    "description": "Finds nginx welcome pages."
+    },
+    {
+    "category": "300 Multiple Choices",
+    "query": "site:{nome} intitle:\"300 multiple choices\"",
+    "description": "Finds 300 multiple choices pages."
+    },
+    {
+    "category": "WAMPSERVER Pages",
+    "query": "site:{nome} intitle:\"Accueil WAMPSERVER\" intext:\"Configuration Serveur\"",
+    "description": "Finds WAMPSERVER configuration pages."
+    },
+    {
+    "category": "Apache Documentation",
+    "query": "site:{nome} intitle:\"Apache HTTP Server\" intitle:\"documentation\"",
+    "description": "Finds Apache HTTP server documentation."
+    },
+    {
+    "category": "Apache Status Pages",
+    "query": "site:{nome} intitle:\"Apache Status\" \"Apache Server Status for\"",
+    "description": "Finds Apache server status pages."
+    },
+    {
+    "category": "Apache Default Pages",
+    "query": "site:{nome} intitle:\"Apache2 Debian Default Page: It works\"",
+    "description": "Finds Apache2 Debian default pages."
+    },
+    {
+    "category": "Axis Happiness Pages",
+    "query": "site:{nome} intitle:\"Axis Happiness Page\" \"Examining webapp configuration\"",
+    "description": "Finds Axis happiness pages."
+    },
+    {
+    "category": "BadBlue Servers",
+    "query": "site:{nome} intitle:\"BadBlue: the file-sharing web server anyone can use\"",
+    "description": "Finds BadBlue file-sharing servers."
+    },
+    {
+    "category": "Nagios Network Status",
+    "query": "site:{nome} intitle:\"Current Network Status\" \"Nagios\"",
+    "description": "Finds Nagios network status pages."
+    },
+    {
+    "category": "Directory Listings",
+    "query": "site:{nome} intitle:\"Directory Listing, Index of /*/\"",
+    "description": "Finds directory listings."
+    },
+    {
+    "category": "Default Home Pages",
+    "query": "site:{nome} intitle:\"Document title goes here\" intitle:\"used by web search tools\" \" example of a simple Home Page\"",
+    "description": "Finds default home pages."
+    },
+    {
+    "category": "Parallels Servers",
+    "query": "site:{nome} intitle:\"Domain Default page\" \"Parallels IP Holdings GmbH\"",
+    "description": "Finds Parallels server default pages."
+    },
+    {
+    "category": "GlassFish Servers",
+    "query": "site:{nome} intitle:\"GlassFish Server - Server Running\"",
+    "description": "Finds GlassFish server running pages."
+    },
+    {
+    "category": "HFS Servers",
+    "query": "site:{nome} intitle:\"HFS\" \"Server Uptime\" \"Server time\"",
+    "description": "Finds HFS server pages."
+    },
+    {
+    "category": "IIS Windows Servers",
+    "query": "site:{nome} intitle:\"IIS Windows Server\" -inurl:\"IIS Windows Server\"",
+    "description": "Finds IIS Windows servers."
+    },
+    {
+    "category": "IPC@CHIP Infopages",
+    "query": "site:{nome} intitle:\"IPC@CHIP Infopage\"",
+    "description": "Finds IPC@CHIP infopages."
+    },
+    {
+    "category": "Icecast Servers",
+    "query": "site:{nome} intitle:\"Icecast Streaming Media Server\"",
+    "description": "Finds Icecast streaming media servers."
+    },
+    {
+    "category": "Apache Directory Listings",
+    "query": "site:{nome} intitle:\"Index of *\" mode links bytes last-changed name",
+    "description": "Finds Apache directory listings."
+    },
+    {
+    "category": "Surftown Servers",
+    "query": "site:{nome} intitle:\"Index of /\" \"Proudly Served by Surftown at\"",
+    "description": "Finds Surftown server pages."
+    },
+    {
+    "category": "Apache Ubuntu Servers",
+    "query": "site:{nome} intitle:\"Index of\" \"Apache/2.4.7 (Ubuntu) Server\"",
+    "description": "Finds Apache Ubuntu servers."
+    },
+    {
+    "category": "Government Servers",
+    "query": "site:{nome} intitle:\"Index of\" site:.gov intext:\"Server at\"",
+    "description": "Finds government server directory listings."
+    },
+    {
+    "category": "Lists Web Services",
+    "query": "site:{nome} intitle:\"Lists Web Service\"",
+    "description": "Finds Lists web services."
+    },
+    {
+    "category": "Lotus Domino Go Servers",
+    "query": "site:{nome} intitle:\"Lotus Domino Go Webserver:\" \"Tuning your webserver\" -site:ibm.com",
+    "description": "Finds Lotus Domino Go servers."
+    },
+    {
+    "category": "Microsoft IIS 8",
+    "query": "site:{nome} intitle:\"Microsoft Internet Information Services 8\" -IIS",
+    "description": "Finds Microsoft IIS 8 servers."
+    },
+    {
+    "category": "Miniweb Start Pages",
+    "query": "site:{nome} intitle:\"Miniweb Start Page\" | \"/CSS/Miniweb.css\"",
+    "description": "Finds Miniweb start pages."
+    },
+    {
+    "category": "Monsta FTP",
+    "query": "site:{nome} intitle:\"Monsta ftp\" intext:\"Lock session to IP\"",
+    "description": "Finds Monsta FTP installations."
+    },
+    {
+    "category": "Apache Object Errors",
+    "query": "site:{nome} intitle:\"Object not found!\" intext:\"Apache/2.0.* (Linux/SuSE)\"",
+    "description": "Finds Apache object not found errors."
+    },
+    {
+    "category": "Netware Apache Servers",
+    "query": "site:{nome} intitle:\"Object not found\" netware \"apache 1..\"",
+    "description": "Finds Netware Apache servers."
+    },
+    {
+    "category": "Open WebMail",
+    "query": "site:{nome} intitle:\"Open WebMail\" \"Open WebMail version (2.20|2.21|2.30) \"",
+    "description": "Finds Open WebMail installations."
+    },
+    {
+    "category": "Resin Default Pages",
+    "query": "site:{nome} intitle:\"Resin Default Home Page\"",
+    "description": "Finds Resin default home pages."
+    },
+    {
+    "category": "SOGo Webmail",
+    "query": "site:{nome} intitle:\"SOGo\" site:webmail.*",
+    "description": "Finds SOGo webmail installations."
+    },
+    {
+    "category": "Server Backup Managers",
+    "query": "site:{nome} intitle:\"Server Backup Manager SE\"",
+    "description": "Finds server backup managers."
+    },
+    {
+    "category": "Shoutcast Administrators",
+    "query": "site:{nome} intitle:\"Shoutcast Administrator\"",
+    "description": "Finds Shoutcast administrators."
+    },
+    {
+    "category": "Shoutcast Servers",
+    "query": "site:{nome} intitle:\"Shoutcast server\" inurl:\"/index.html\" \"SHOUTcast Server\"",
+    "description": "Finds Shoutcast servers."
+    },
+    {
+    "category": "New Web Servers",
+    "query": "site:{nome} intitle:\"Success!\" intext:\"Your new web server is ready to use.\"",
+    "description": "Finds new web server success pages."
+    },
+    {
+    "category": "Sucuri Firewalls",
+    "query": "site:{nome} intitle:\"Sucuri WebSite Firewall - Access Denied\"",
+    "description": "Finds Sucuri firewall pages."
+    },
+    {
+    "category": "Apache Test Pages",
+    "query": "site:{nome} intitle:\"Test Page for Apache\"",
+    "description": "Finds Apache test pages."
+    },
+    {
+    "category": "Fedora Apache Servers",
+    "query": "site:{nome} intitle:\"Test Page for the Apache HTTP Server on Fedora\"",
+    "description": "Finds Fedora Apache servers."
+    },
+    {
+    "category": "WAMPSERVER Pages",
+    "query": "site:{nome} intitle:\"WAMPSERVER homepage\" \"Server Configuration\" \"Apache Version\"",
+    "description": "Finds WAMPSERVER configuration pages."
+    },
+    {
+    "category": "WATASHI Services",
+    "query": "site:{nome} intitle:\"WATASHI SERVICE\"",
+    "description": "Finds WATASHI service pages."
+    },
+    {
+    "category": "Plesk Hosting",
+    "query": "site:{nome} intitle:\"Web Server's Default Page\" intext:\"hosting using Plesk\" -www",
+    "description": "Finds Plesk hosting default pages."
+    },
+    {
+    "category": "Xitami Servers",
+    "query": "site:{nome} intitle:\"Welcome To Xitami\" -site:xitami.com",
+    "description": "Finds Xitami servers."
+    },
+    {
+    "category": "WebSTAR Home Pages",
+    "query": "site:{nome} intitle:\"Welcome to Your WebSTAR Home Page\"",
+    "description": "Finds WebSTAR home pages."
+    },
+    {
+    "category": "602LAN SUITE",
+    "query": "site:{nome} intitle:\"Welcome to 602LAN SUITE *\"",
+    "description": "Finds 602LAN SUITE installations."
+    },
+    {
+    "category": "IIS 4.0",
+    "query": "site:{nome} intitle:\"Welcome to IIS 4.0\"",
+    "description": "Finds IIS 4.0 servers."
+    },
+    {
+    "category": "JBoss Servers",
+    "query": "site:{nome} intitle:\"Welcome to JBoss\"",
+    "description": "Finds JBoss servers."
+    },
+    {
+    "category": "OpenResty Servers",
+    "query": "site:{nome} intitle:\"Welcome to OpenResty!\"",
+    "description": "Finds OpenResty servers."
+    },
+    {
+    "category": "WildFly Servers",
+    "query": "site:{nome} intitle:\"Welcome to WildFly\" intext:\"Administration Console\"",
+    "description": "Finds WildFly servers."
+    },
+    {
+    "category": "Windows 2000 Servers",
+    "query": "site:{nome} intitle:\"Welcome to Windows 2000 Internet Services\"",
+    "description": "Finds Windows 2000 Internet services."
+    },
+    {
+    "category": "Windows Small Business Servers",
+    "query": "site:{nome} intitle:\"Welcome to Windows Small Business Server 2003\"",
+    "description": "Finds Windows Small Business servers."
+    },
+    {
+    "category": "Debian Apache Servers",
+    "query": "site:{nome} intitle:\"Welcome to nginx!\" intext:\"Welcome to nginx on Debian!\" intext:\"Thank you for\"",
+    "description": "Finds Debian nginx servers."
+    },
+    {
+    "category": "Advanced Extranet Servers",
+    "query": "site:{nome} intitle:\"Welcome to the Advanced Extranet Server, ADVX!\"",
+    "description": "Finds Advanced Extranet servers."
+    },
+    {
+    "category": "LiteSpeed Technologies",
+    "query": "site:{nome} intitle:\"Welcome\" intext:\"LiteSpeed Technologies, Inc. All Rights Reserved.\"",
+    "description": "Finds LiteSpeed Technologies servers."
+    },
+    {
+    "category": "Apache Tomcat Examples",
+    "query": "site:{nome} intitle:\"apache tomcat/\" \"Apache Tomcat examples\"",
+    "description": "Finds Apache Tomcat example pages."
+    },
+    {
+    "category": "Apache Tomcat Configuration",
+    "query": "site:{nome} intitle:\"apache tomcat/\" + \"Find additional important configuration information in:\"",
+    "description": "Finds Apache Tomcat configuration pages."
+    },
+    {
+    "category": "HTTP 404 Errors",
+    "query": "site:{nome} intitle:\"error 404\" \"From RFC 2068 \"",
+    "description": "Finds HTTP 404 error pages."
+    },
+    {
+    "category": "Home Directory Listings",
+    "query": "site:{nome} intitle:\"index of\" \"/homedir/etc/\"",
+    "description": "Finds home directory listings."
+    },
+    {
+    "category": "Sun-ONE Servers",
+    "query": "site:{nome} intitle:\"index of\" \"Served by Sun-ONE\"",
+    "description": "Finds Sun-ONE servers."
+    },
+    {
+    "category": "Debug Logs",
+    "query": "site:{nome} intitle:\"index of\" \"debug.log\" OR \"debug-log\"",
+    "description": "Finds debug logs."
+    },
+    {
+    "category": "Docker Configurations",
+    "query": "site:{nome} intitle:\"index of\" \"docker.yml\"",
+    "description": "Finds Docker configuration files."
+    },
+    {
+    "category": "Apache Port 80 Listings",
+    "query": "site:{nome} intitle:\"index of\" \"powered by apache \" \"port 80\"",
+    "description": "Finds Apache port 80 directory listings."
+    },
+    {
+    "category": "Server Directory Listings",
+    "query": "site:{nome} intitle:\"index of\" \"server at\"",
+    "description": "Finds server directory listings."
+    },
+    {
+    "category": "Magento Development Files",
+    "query": "site:{nome} intitle:\"index of\" AND inurl:magento AND inurl:/dev",
+    "description": "Finds Magento development files in directory listings."
+    },
+    {
+    "category": "Government Server Listings",
+    "query": "site:{nome} intitle:\"index of\" site:.gov.in",
+    "description": "Finds government server directory listings."
+    },
+    {
+    "category": "MiniProxy Pages",
+    "query": "site:{nome} intitle:\"miniProxy\"",
+    "description": "Finds MiniProxy pages."
+    },
+    {
+    "category": "nPerfServer Pages",
+    "query": "site:{nome} intitle:\"nPerfServer\"",
+    "description": "Finds nPerfServer pages."
+    },
+    {
+    "category": "Web Server Login Pages",
+    "query": "site:{nome} intitle:\"web server login\" intext:\"site ip\"",
+    "description": "Finds web server login pages with IP references."
+    },
+    {
+    "category": "Mono XSP Servers",
+    "query": "site:{nome} intitle:\"welcome to mono xsp\"",
+    "description": "Finds Mono XSP server installations."
+    },
+    {
+    "category": "AnswerBook2 Pages",
+    "query": "site:{nome} intitle:AnswerBook2 inurl:ab2/ (inurl:8888 | inurl:8889)",
+    "description": "Finds AnswerBook2 pages."
+    },
+    {
+    "category": "CentOS HTTP Server Test Pages",
+    "query": "site:{nome} intitle:HTTP Server Test Page powered by CentOS",
+    "description": "Finds CentOS HTTP server test pages."
+    },
+    {
+    "category": "Snap.Server Pages",
+    "query": "site:{nome} intitle:Snap.Server inurl:Func=",
+    "description": "Finds Snap.Server pages."
+    },
+    {
+    "category": "Snoop Servlets",
+    "query": "site:{nome} intitle:Snoop Servlet",
+    "description": "Finds Snoop Servlet pages."
+    },
+    {
+    "category": "Nginx HTTP Server Test Pages",
+    "query": "site:{nome} intitle:Test Page for the Nginx HTTP Server on Fedora",
+    "description": "Finds Nginx HTTP server test pages on Fedora."
+    },
+    {
+    "category": "LiveZilla Server Time",
+    "query": "site:{nome} intitle:livezilla \"Server Time\"",
+    "description": "Finds LiveZilla server time pages."
+    },
+    {
+    "category": "Login Pages",
+    "query": "site:{nome} inurl *:8080/login.php",
+    "description": "Finds login pages on port 8080."
+    },
+    {
+    "category": "Office FTP Directories",
+    "query": "site:{nome} inurl: /ftp intitle:\"office\"",
+    "description": "Finds office-related FTP directories."
+    },
+    {
+    "category": "Kibana Dashboards",
+    "query": "site:{nome} inurl:\"/app/kibana#\"",
+    "description": "Finds Kibana dashboard pages."
+    },
+    {
+    "category": "Domino Web Server Configurations",
+    "query": "site:{nome} inurl:\"/domcfg.nsf\" \" Web Server Configuration\"",
+    "description": "Finds Domino web server configuration pages."
+    },
+    {
+    "category": "phpMyAdmin Password Reset",
+    "query": "site:{nome} inurl:\"/phpmyadmin/user_password.php\"",
+    "description": "Finds phpMyAdmin password reset pages."
+    },
+    {
+    "category": "Administration Consoles",
+    "query": "site:{nome} inurl:\"/web-console/\" intitle:\"Administration Console\"",
+    "description": "Finds administration console pages."
+    },
+    {
+    "category": "Hadoop Cluster Applications",
+    "query": "site:{nome} inurl:\":8088/cluster/apps\"",
+    "description": "Finds Hadoop cluster application pages."
+    },
+    {
+    "category": "WebPortal Bank IDs",
+    "query": "site:{nome} inurl:\"WebPortal?bankid\"",
+    "description": "Finds WebPortal bank ID pages."
+    },
+    {
+    "category": "MySQL Fetch Errors",
+    "query": "site:{nome} inurl:\"id=*\" & intext:\"warning mysql_fetch_array()\"",
+    "description": "Finds MySQL fetch array errors."
+    },
+    {
+    "category": "Apache Server Status",
+    "query": "site:{nome} inurl:\"server-status\" \"Server Version: Apache/\" \"Server Built: \" \"Server uptime:\" \"Total accesses\" \"CPU Usage:\"",
+    "description": "Finds Apache server status pages."
+    },
+    {
+    "category": "Database Selector Pages",
+    "query": "site:{nome} inurl:\"web/database/selector\"",
+    "description": "Finds database selector pages."
+    },
+    {
+    "category": "Portal Pages",
+    "query": "site:{nome} inurl:/Portal0000.htm",
+    "description": "Finds portal pages."
+    },
+    {
+    "category": "SharePoint Catalogs",
+    "query": "site:{nome} inurl:/_catalogs",
+    "description": "Finds SharePoint catalogs."
+    },
+    {
+    "category": "HCMS Pages",
+    "query": "site:{nome} inurl:/_hcms/",
+    "description": "Finds HCMS pages."
+    },
+    {
+    "category": "Device Configurations",
+    "query": "site:{nome} inurl:/config/device/wcd",
+    "description": "Finds device configuration pages."
+    },
+    {
+    "category": "IIS Start Pages",
+    "query": "site:{nome} inurl:/iisstart.htm intitle:\"IIS7\"",
+    "description": "Finds IIS start pages."
+    },
+    {
+    "category": "Java Faces Resources",
+    "query": "site:{nome} inurl:/javax.faces.resource/",
+    "description": "Finds Java Faces resource pages."
+    },
+    {
+    "category": "PHP Info Pages",
+    "query": "site:{nome} inurl:/php/info.php",
+    "description": "Finds PHP info pages."
+    },
+    {
+    "category": "phpPgAdmin Browsers",
+    "query": "site:{nome} inurl:/phpPgAdmin/browser.php",
+    "description": "Finds phpPgAdmin browser pages."
+    },
+    {
+    "category": "phpMyAdmin Changelogs",
+    "query": "site:{nome} inurl:/phpmyadmin/changelog.php -github -gitlab",
+    "description": "Finds phpMyAdmin changelog pages."
+    },
+    {
+    "category": "Public Resource Indexes",
+    "query": "site:{nome} inurl:/pub/ inurl:_ri_",
+    "description": "Finds public resource indexes."
+    },
+    {
+    "category": "Apache MPM Details",
+    "query": "site:{nome} inurl:/server-status + \"Server MPM:\"",
+    "description": "Finds Apache MPM details."
+    },
+    {
+    "category": "AffiliateWP Debug Logs",
+    "query": "site:{nome} inurl:/uploads/affwp-debug.log",
+    "description": "Finds AffiliateWP debug logs."
+    },
+    {
+    "category": "XProber PHP Pages",
+    "query": "site:{nome} inurl:/xprober ext:php",
+    "description": "Finds XProber PHP pages."
+    },
+    {
+    "category": "Jana Admin Pages",
+    "query": "site:{nome} inurl:2506/jana-admin",
+    "description": "Finds Jana admin pages."
+    },
+    {
+    "category": "Xdebug Sessions",
+    "query": "site:{nome} inurl:?XDEBUG_SESSION_START=phpstorm",
+    "description": "Finds Xdebug session start pages."
+    },
+    {
+    "category": "CFIDE Admin APIs",
+    "query": "site:{nome} inurl:CFIDE/adminapi",
+    "description": "Finds CFIDE admin API pages."
+    },
+    {
+    "category": "Organization Charts",
+    "query": "site:{nome} inurl:OrganizationChart.cc",
+    "description": "Finds organization chart pages."
+    },
+    {
+    "category": "VTI Bin Authentication",
+    "query": "site:{nome} inurl:_vti_bin/Authentication.asmx",
+    "description": "Finds VTI bin authentication pages."
+    },
+    {
+    "category": "CodeIgniter Composer Files",
+    "query": "site:{nome} inurl:composer.json codeigniter -site:github.com",
+    "description": "Finds CodeIgniter composer files."
+    },
+    {
+    "category": "Domino Configuration Files",
+    "query": "site:{nome} inurl:domcfg.nsf",
+    "description": "Finds Domino configuration files."
+    },
+    {
+    "category": "JSmol Pages",
+    "query": "site:{nome} inurl:jsmol.php",
+    "description": "Finds JSmol pages."
+    },
+    {
+    "category": "Brand HTML Files",
+    "query": "site:{nome} inurl:nnls_brand.html OR inurl:nnls_nav.html",
+    "description": "Finds brand HTML files."
+    },
+    {
+    "category": "Oracle Web Pages",
+    "query": "site:{nome} inurl:oraweb -site:oraweb.org",
+    "description": "Finds Oracle web pages."
+    },
+    {
+    "category": "PHP Info Build Pages",
+    "query": "site:{nome} inurl:phpinfo.php intext:build 2600",
+    "description": "Finds PHP info build pages."
+    },
+    {
+    "category": "phpMyAdmin Themes",
+    "query": "site:{nome} inurl:phpmyadmin/themes intext:\"pmahomme\"",
+    "description": "Finds phpMyAdmin themes."
+    },
+    {
+    "category": "PHP System Information",
+    "query": "site:{nome} inurl:phpsysinfo/index.php?disp=dynamic",
+    "description": "Finds PHP system information pages."
+    },
+    {
+    "category": "Laravel Readme Files",
+    "query": "site:{nome} inurl:readme.md intext:\"Laravel\"",
+    "description": "Finds Laravel readme files."
+    },
+    {
+    "category": "CodeIgniter Readme Files",
+    "query": "site:{nome} inurl:readme.rst intext:\"CodeIgniter\"",
+    "description": "Finds CodeIgniter readme files."
+    },
+    {
+    "category": "RVSiteBuilder Pages",
+    "query": "site:{nome} inurl:rvsindex.php & /rvsindex.php?/user/login",
+    "description": "Finds RVSiteBuilder pages."
+    },
+    {
+    "category": "Cisco Tech Support Pages",
+    "query": "site:{nome} inurl:tech-support inurl:show Cisco",
+    "description": "Finds Cisco tech support pages."
+    },
+    {
+    "category": "Mock Autoloader Tests",
+    "query": "site:{nome} inurl:tests/mocks intext:autoloader",
+    "description": "Finds mock autoloader tests."
+    },
+    {
+    "category": "CodeIgniter User Guides",
+    "query": "site:{nome} inurl:user_guide intext:\"CodeIgniter User Guide\"",
+    "description": "Finds CodeIgniter user guides."
+    },
+    {
+    "category": "WL Executable Pages",
+    "query": "site:{nome} inurl:wl.exe inurl:?SS1= intext:\"Operating system:\" -edu -gov -mil",
+    "description": "Finds WL executable pages."
+    },
+    {
+    "category": "SEDWebserver Pages",
+    "query": "site:{nome} sEDWebserver * server +at intitle:index.of",
+    "description": "Finds SEDWebserver pages."
+    },
+    {
+    "category": "ASP Pages",
+    "query": "site:{nome} site:*/*.asp",
+    "description": "Finds ASP pages."
+    },
+    {
+    "category": "Apache Server Status Pages",
+    "query": "site:{nome} site:*/server-status intext:\"Apache server status for\"",
+    "description": "Finds Apache server status pages."
+    },
+    {
+    "category": "FTP File Managers",
+    "query": "site:{nome} site:ftp.*.com \"Web File Manager\"",
+    "description": "Finds FTP file managers."
+    },
+    {
+    "category": "OVH VPS Pages",
+    "query": "site:{nome} site:vps-*.vps.ovh.net",
+    "description": "Finds OVH VPS pages."
+    },
+    {
+    "category": "Yaws Servers",
+    "query": "site:{nome} yaws.*.server.at",
+    "description": "Finds Yaws servers."
+    },
+    {
+        "category": "Security Policies",
+        "query": "site:{nome}/security.txt \"bounty\"",
+        "description": "Finds security policies or bug bounty programs of the target domain."
+    },
+    {
+        "category": "WordPress Vulnerabilities",
+        "query": "site:{nome} inurl:/wp-admin/admin-ajax.php",
+        "description": "Finds WordPress admin-ajax.php endpoints that may be vulnerable."
+    },
+    {
+        "category": "Server Status",
+        "query": "site:{nome}/server-status apache",
+        "description": "Finds Apache server status pages that may expose server details."
+    },
+    {
+        "category": "Drupal Vulnerabilities",
+        "query": "site:{nome} intext:\"Powered by\" & intext:Drupal & inurl:user",
+        "description": "Finds Drupal user pages that may be vulnerable."
+    },
+    {
+        "category": "Joomla Vulnerabilities",
+        "query": "site:{nome}/joomla/login",
+        "description": "Finds Joomla login pages that may be vulnerable."
+    },
+    {
+        "category": "Bug Bounty Platforms",
+        "query": "site:{nome} \"submit vulnerability report\" | \"powered by bugcrowd\" | \"powered by hackerone\"",
+        "description": "Finds bug bounty platforms or vulnerability submission pages."
+    },
+    {
+        "category": "Confidential Information",
+        "query": "site:{nome} intext:\"confidential\" | intext:\"Not for Public Release\" | intext:\"internal use only\" | intext:\"do not distribute\"",
+        "description": "Finds pages containing confidential or internal information."
+    },
+    {
+        "category": "FTP Directory Listings",
+        "query": "site:{nome} intitle:\"index of\" inurl:ftp",
+        "description": "Finds FTP directory listings."
+    },
+    {
+        "category": "FTP URLs",
+        "query": "site:{nome} filetype:url +inurl:\"ftp://\" +inurl:\";@\"",
+        "description": "Finds FTP URLs with credentials."
+    },
+    {
+        "category": "FTP Root Pages",
+        "query": "site:{nome} intitle:\"FTP root at\"",
+        "description": "Finds FTP root pages."
+    },
+    {
+        "category": "FTP Root Directories",
+        "query": "site:{nome} inurl:FTP \"ftp root at\"",
+        "description": "Finds FTP root directories."
+    },
+    {
+        "category": "FTP File Listings",
+        "query": "site:{nome} name size \"Last modified\" inurl:ftp",
+        "description": "Finds FTP file listings."
+    },
+    {
+        "category": "FTP Parent Directories",
+        "query": "site:{nome} \"Parent Directory\" \"Last modified\" ftp",
+        "description": "Finds FTP parent directories."
+    },
+    {
+        "category": "Java Errors",
+        "query": "site:{nome} intitle:Error-javax.el.ELException+error+xhtml",
+        "description": "Finds Java EL exception errors."
+    },
+    {
+        "category": "Java Applet Pages",
+        "query": "site:{nome} intitle:\"Java Applet Page\" inurl:ml",
+        "description": "Finds Java applet pages."
+    },
+    {
+        "category": "Jira Instances",
+        "query": "site:{nome} inurl:jira",
+        "description": "Finds Jira instances."
+    },
+    {
+        "category": "Jira Contact Forms",
+        "query": "site:{nome} inurl:/secure/ContactAdministrators!default.jspa intext:\"Request Details\" -intext:\"Your Jira administrator has not yet configured this contact form\"",
+        "description": "Finds Jira contact forms."
+    },
+    {
+        "category": "Jira Directory Listings",
+        "query": "site:{nome} \"Parent Directory\" \"Last modified\" jira",
+        "description": "Finds Jira directory listings."
+    },
+    {
+        "category": "Product Pages",
+        "query": "site:{nome} product.php?id=",
+        "description": "Finds product pages with ID parameters."
+    },
+    {
+        "category": "Event Detail Pages",
+        "query": "site:{nome} viewshowdetail.php?id=",
+        "description": "Finds event detail pages with ID parameters."
+    },
+    {
+        "category": "Club Pages",
+        "query": "site:{nome} clubpage.php?id=",
+        "description": "Finds club pages with ID parameters."
+    },
+    {
+        "category": "Member Info Pages",
+        "query": "site:{nome} memberInfo.php?id=",
+        "description": "Finds member info pages with ID parameters."
+    },
+    {
+        "category": "Trade Category Pages",
+        "query": "site:{nome} tradeCategory.php?id=",
+        "description": "Finds trade category pages with ID parameters."
+    },
+    {
+        "category": "Transcript Pages",
+        "query": "site:{nome} transcript.php?id=",
+        "description": "Finds transcript pages with ID parameters."
+    },
+    {
+        "category": "Index Pages",
+        "query": "site:{nome} index.php?id=",
+        "description": "Finds index pages with ID parameters."
+    },
+    {
+        "category": "Search Pages",
+        "query": "site:{nome} search.php?id=",
+        "description": "Finds search pages with ID parameters."
+    },
+    {
+        "category": "General Search Pages",
+        "query": "site:{nome} search.php",
+        "description": "Finds general search pages."
+    },
+    {
+        "category": "PHP Files",
+        "query": "site:{nome} filetype:php",
+        "description": "Finds PHP files."
+    },
+    {
+        "category": "Configuration Files",
+        "query": "site:{nome} inurl:config pass",
+        "description": "Finds configuration files with 'pass' keywords."
+    },
+    {
+        "category": "Configuration Secrets",
+        "query": "site:{nome} inurl:config secret",
+        "description": "Finds configuration files with 'secret' keywords."
+    },
+    {
+        "category": "Database Passwords",
+        "query": "site:{nome} inurl:config.php dbpasswd",
+        "description": "Finds database passwords in `config.php` files."
+    },
+    {
+        "category": "Configuration Passwords",
+        "query": "site:{nome} inurl:config.php pass",
+        "description": "Finds passwords in `config.php` files."
+    },
+    {
+        "category": "Configuration Passwords",
+        "query": "site:{nome} inurl:config.php password",
+        "description": "Finds passwords in `config.php` files."
+    },
+    {
+        "category": "Configuration Files",
+        "query": "site:{nome} inurl:configuration",
+        "description": "Finds configuration files."
+    },
+    {
+        "category": "Environment Files",
+        "query": "site:{nome} inurl:env",
+        "description": "Finds environment files."
+    },
+    {
+        "category": "Settings Files",
+        "query": "site:{nome} inurl:setting",
+        "description": "Finds settings files."
+    },
+    {
+        "category": "Log Files",
+        "query": "site:{nome} filetype:log",
+        "description": "Finds log files."
+    },
+    {
+        "category": "htaccess Files",
+        "query": "site:{nome} intext:\"Index of /\" +.htaccess",
+        "description": "Finds `.htaccess` files in directory listings."
+    },
+    {
+        "category": "Directory Listings",
+        "query": "site:{nome} intitle:\"index of\"",
+        "description": "Finds directory listings."
+    },
+    {
+        "category": "Admin Login Pages",
+        "query": "site:{nome} inurl:& intext:admin intext:login",
+        "description": "Finds admin login pages."
+    },
+    {
+        "category": "Search Queries",
+        "query": "site:{nome} inurl:& intext:search",
+        "description": "Finds search query pages."
+    },
+    {
+        "category": "Configuration Secrets",
+        "query": "site:{nome} inurl:config secret",
+        "description": "Finds configuration files with secrets."
+    },
+    {
+        "category": "Backup Files",
+        "query": "site:{nome} inurl:backup",
+        "description": "Finds backup files."
+    },
+    {
+        "category": "Backup Archives",
+        "query": "site:{nome} inurl:backup.zip",
+        "description": "Finds backup archive files."
+    },
+    {
+        "category": "Quiz Pages",
+        "query": "site:{nome} inurl:quiz inurl:&",
+        "description": "Finds quiz pages with query parameters."
+    },
+    {
+        "category": "Makefile Configurations",
+        "query": "site:{nome} inurl:Makefile.toml",
+        "description": "Finds Makefile configurations."
+    },
+    {
+        "category": "XML Credentials",
+        "query": "site:{nome} hostname user password filetype:xml",
+        "description": "Finds XML files containing credentials."
+    },
+    {
+        "category": "Git Credentials",
+        "query": "site:{nome} inurl:.git-credentials",
+        "description": "Finds `.git-credentials` files containing sensitive Git credentials."
+    },
+    {
+        "category": "Git Configurations",
+        "query": "site:{nome} inurl:.gitconfig",
+        "description": "Finds `.gitconfig` files containing Git configurations."
+    },
+    {
+        "category": "Git Directories",
+        "query": "site:{nome} intext:\"index of /.git\" \"parent directory\"",
+        "description": "Finds `.git` directories exposed in directory listings."
+    },
+    {
+        "category": "Git Files",
+        "query": "site:{nome} filetype:git -github.com inurl:\"/.git\"",
+        "description": "Finds `.git` files outside GitHub repositories."
+    },
+    {
+        "category": "Git ORIG_HEAD",
+        "query": "site:{nome} inurl:ORIG_HEAD",
+        "description": "Finds `ORIG_HEAD` files in Git repositories."
+    },
+    {
+        "category": "Git Ignore Files",
+        "query": "site:{nome} intitle:\"index of\" \".gitignore\"",
+        "description": "Finds `.gitignore` files in directory listings."
+    },
+    {
+        "category": "Git Index Listings",
+        "query": "site:{nome} \".git\" intitle:\"Index of\"",
+        "description": "Finds `.git` directories in index listings."
+    },
+    {
+        "category": "Git Parent Directories",
+        "query": "site:{nome} \"Parent Directory\" \"Last modified\" git",
+        "description": "Finds parent directories of Git repositories."
+    },
+    {
+        "category": "Git References",
+        "query": "site:{nome} inurl:git",
+        "description": "Finds references to Git repositories."
+    },
+    {
+        "category": "Secrets in JavaScript",
+        "query": "site:{nome} secret inurl:js filetype:txt",
+        "description": "Finds secrets stored in JavaScript-related text files."
+    },
+    {
+        "category": "AWStats Pages",
+        "query": "site:{nome} inurl:awstats",
+        "description": "Finds AWStats pages."
+    },
+    {
+        "category": "Monitoring Pages",
+        "query": "site:{nome} inurl:monitoring",
+        "description": "Finds monitoring pages."
+    },
+    {
+        "category": "Monitoring Variants",
+        "query": "site:{nome} inurl:monitoring1 | inurl:monitoring2 | inurl:monitor01 | inurl:monitor02 | inurl:monitoramento | inurl:ipmonitor",
+        "description": "Finds variations of monitoring pages."
+    },
+    {
+        "category": "Statistics Pages",
+        "query": "site:{nome} inurl:stats | inurl:webstats | inurl:netstats | inurl:labstats | inurl:logtstats | inurl:livestats | inurl:livemonitoring",
+        "description": "Finds statistics and monitoring pages."
+    },
+    {
+        "category": "Nagios Pages",
+        "query": "site:{nome} inurl:nagios/side.php",
+        "description": "Finds Nagios side pages."
+    },
+    {
+        "category": "Kibana Pages",
+        "query": "site:{nome} inurl:kibana",
+        "description": "Finds Kibana dashboard pages."
+    },
+    {
+        "category": "Grafana Pages",
+        "query": "site:{nome} inurl:grafana",
+        "description": "Finds Grafana dashboard pages."
+    },
+    {
+        "category": "Cacti Pages",
+        "query": "site:{nome} inurl:cacti",
+        "description": "Finds Cacti monitoring pages."
+    },
+    {
+        "category": "Munin Pages",
+        "query": "site:{nome} inurl:munin",
+        "description": "Finds Munin monitoring pages."
+    },
+    {
+        "category": "Redirect Parameters",
+        "query": "site:{nome} inurl:url | inurl:continue | inurl:returnto | inurl:redirect | inurl:return | inurl:target | inurl:site | inurl:view | inurl:path",
+        "description": "Finds URLs with redirect parameters."
+    },
+    {
+        "category": "Redirect Query Strings",
+        "query": "site:{nome} inurl:url inurl:& | inurl:return inurl:& | inurl:continue inurl:& | inurl:next inurl:& | inurl:dest inurl:& | inurl:destination inurl:& | inurl:redir inurl:& | inurl:redirect_uri inurl:&",
+        "description": "Finds URLs with query strings for redirection."
+    },
+    {
+        "category": "Open Redirects",
+        "query": "site:{nome} inurl:/cgi-bin/redirect.cgi | inurl:/out/ | inurl:/login?to= | inurl:http | inurl:=www | inurl:.com inurl:&",
+        "description": "Finds open redirect vulnerabilities."
+    },
+    {
+        "category": "Presentation Files",
+        "query": "site:{nome} filetype:pptx | inurl:presentation filetype:pdf",
+        "description": "Finds presentation files (PPTX or PDF)."
+    },
+    {
+        "category": "Dynamic PHP Pages",
+        "query": "site:{nome} .php?module= | .php?action= | .php?page= | .php?pid= | .php?search=",
+        "description": "Finds dynamic PHP pages with query parameters."
+    },
+    {
+        "category": "E-commerce Product Pages",
+        "query": "site:{nome} Book.php?bookID= | BookDetails.php?ID= | Browse_Item_Details.php?Store_Id= | StoreRedirect.php?ID= | ViewProduct.php?misc= | WsAncillary.php?ID= | WsPages.php?ID=noticiasDetalle.php?xid=",
+        "description": "Finds e-commerce product pages with query parameters."
+    },
+    {
+        "category": "Shopping Cart Pages",
+        "query": "site:{nome} add-to-cart.php?ID= | addItem.php | addToCart.php?idProduct= | add_cart.php?num= | addcart.php? | addtomylist.php?ProdId=",
+        "description": "Finds shopping cart pages with query parameters."
+    },
+    {
+        "category": "Event and News Pages",
+        "query": "site:{nome} events/detail.php?ID= | news.php?ID= | news.php?id= | news.php?t= | news/news/title_show.php?id=",
+        "description": "Finds event and news pages with query parameters."
+    },
+    {
+        "category": "Gallery and Media Pages",
+        "query": "site:{nome} gallery.php?id= | photogallery.php?id= | media/pr.php?id=",
+        "description": "Finds gallery and media pages with query parameters."
+    },
+    {
+        "category": "Wiki Pages",
+        "query": "site:{nome} allinurl:\".edu/mediawiki/index.php\" | allinurl:\".com/mediawiki/index.php\" | allinurl:\".net/mediawiki/index.php\" | allinurl:\".org/mediawiki/index.php\" | allinurl:\".info/mediawiki/index.php\"",
+        "description": "Finds wiki pages on educational or organizational domains."
+    },
+    {
+        "category": "Search Queries",
+        "query": "site:{nome} inurl:& inurl:test | inurl:& inurl:quiz | inurl:& inurl:survey | inurl:& inurl:game | inurl:& inurl:competition | inurl:& inurl:form | inurl:& inurl:title | inurl:& inurl:search | inurl:& inurl:city | inurl:& inurl:date | inurl:& inurl:topic",
+        "description": "Finds search queries with specific keywords."
+    },
+    {
+        "category": "Query Parameters",
+        "query": "site:{nome} inurl:query filetype:html inurl:page | inurl:query filetype:html inurl:sort | inurl:query filetype:php",
+        "description": "Finds query parameters in HTML or PHP files."
+    },
+    {
+        "category": "AWStats Variants",
+        "query": "site:{nome} inurl:/awstats.**?amp;output=;1 | inurl:/awstats.**?amp;lang=;1 | inurl:/awstats.**?...&amp;output=;1 | inurl:/webalizer.current;1 | inurl:/xmlrpc.php;1 | inurl:/awstats.**?year=;1",
+        "description": "Finds variations of AWStats pages with specific query parameters."
+    },
+    {
+        "category": "Webalizer Pages",
+        "query": "site:{nome} inurl:/webalizer | inurl:/stats/usage",
+        "description": "Finds Webalizer statistics pages."
+    },
+    {
+        "category": "System Statistics",
+        "query": "site:{nome} inurl:system-day.html | inurl:disk-day.html | inurl:stats.html",
+        "description": "Finds system statistics pages."
+    },
+    {
+        "category": "Grafana Welcome Pages",
+        "query": "site:{nome} \"Welcome to Grafana\" intitle:Grafana",
+        "description": "Finds Grafana welcome pages."
+    },
+    {
+        "category": "Wiki Modifications",
+        "query": "site:{nome} \"This page was last modified on\" | \"This page has been accessed\" | \"There is currently no text in this page, you can search for this page title in other pages or edit this page\"",
+        "description": "Finds wiki pages with modification details."
+    },
+    {
+        "category": "MediaWiki Pages",
+        "query": "site:{nome} allinurl:\"http://wiki.\" | allinurl:\"http://mediawiki.\" | allinurl:\"http://wikka.\" | Keyword inurl:wiki | inurl:MediaWiki_talk",
+        "description": "Finds MediaWiki-related pages."
+    },
+    {
+        "category": "Educational Wikis",
+        "query": "site:{nome} site:.edu inurl:wiki | site:.edu inurl:MediaWiki_talk | site:.edu \"Log in / create account\"",
+        "description": "Finds wikis hosted on educational domains."
+    },
+    {
+        "category": "Wiki Login Pages",
+        "query": "site:{nome} \"Log in / create account\" | inurl:wiki/index.php?title=Special:Userlogin&amp;returnto",
+        "description": "Finds login pages for wikis."
+    },
+    {
+        "category": "Wiki Toolbox",
+        "query": "site:{nome} \"Toolbox\" \"This page was last modified\" | \"Main Page\" \"discussion\" \"edit\"",
+        "description": "Finds wiki toolbox pages with modification details."
+    },
+    {
+        "category": "Wikipedia Parent Directories",
+        "query": "site:{nome} \"Parent Directory\" \"Last modified\" wikipedia",
+        "description": "Finds parent directories of Wikipedia-related content."
+    },
+    {
+        "category": "Search Queries",
+        "query": "site:{nome} inurl:& inurl:search inurl:q | inurl:& inurl:search inurl:s | index.php? inurl:& | inurl:search | inurl:suche | inurl:page | inurl:& inurl:query | inurl:& inurl:suche | inurl:& inurl:input | inurl:& inurl:next | inurl:& inurl:target",
+        "description": "Finds search queries with specific keywords and parameters."
+    },
+    {
+        "category": "Dynamic Search Pages",
+        "query": "site:{nome} inurl:search inurl:page | inurl:search inurl:p | inurl:query filetype:html inurl:page | inurl:query filetype:html inurl:sort | inurl:query filetype:php",
+        "description": "Finds dynamic search pages with query parameters."
+    },
+    {
+        "category": "Query Parameters",
+        "query": "site:{nome} inurl:query filetype:html inurl:page | inurl:query filetype:html inurl:sort | inurl:query filetype:php",
+        "description": "Finds query parameters in HTML or PHP files."
+    },
+    {
+        "category": "Dynamic PHP Pages",
+        "query": "site:{nome} .php?redirect= | all.php?redirect= | gallery.php?redirect= | include.php?redirect=",
+        "description": "Finds dynamic PHP pages with redirect parameters."
+    },
+    {
+        "category": "Presentation Files",
+        "query": "site:{nome} presentation filetype:pdf",
+        "description": "Finds presentation files in PDF format."
+    },
+    {
+        "category": "Dynamic PHP Modules",
+        "query": "site:{nome} .php?module= | .php?action= | .php?page= | .php?pid= | .php?search=",
+        "description": "Finds dynamic PHP pages with module or action parameters."
+    },
+    {
+        "category": "E-commerce Product Pages",
+        "query": "site:{nome} Book.php?bookID= | BookDetails.php?ID= | Browse_Item_Details.php?Store_Id= | StoreRedirect.php?ID= | ViewProduct.php?misc= | WsAncillary.php?ID= | WsPages.php?ID=noticiasDetalle.php?xid=",
+        "description": "Finds e-commerce product pages with query parameters."
+    },
+    {
+        "category": "Shopping Cart Pages",
+        "query": "site:{nome} add-to-cart.php?ID= | addItem.php | addToCart.php?idProduct= | add_cart.php?num= | addcart.php? | addtomylist.php?ProdId=",
+        "description": "Finds shopping cart pages with query parameters."
+    },
+    {
+        "category": "Event and News Pages",
+        "query": "site:{nome} events/detail.php?ID= | news.php?ID= | news.php?id= | news.php?t= | news/news/title_show.php?id=",
+        "description": "Finds event and news pages with query parameters."
+    },
+    {
+        "category": "Gallery and Media Pages",
+        "query": "site:{nome} gallery.php?id= | photogallery.php?id= | media/pr.php?id=",
+        "description": "Finds gallery and media pages with query parameters."
+    },
+    {
+        "category": "Wiki Pages",
+        "query": "site:{nome} allinurl:\".edu/mediawiki/index.php\" | allinurl:\".com/mediawiki/index.php\" | allinurl:\".net/mediawiki/index.php\" | allinurl:\".org/mediawiki/index.php\" | allinurl:\".info/mediawiki/index.php\"",
+        "description": "Finds wiki pages on educational or organizational domains."
+    },
+    {
+        "category": "Search Queries",
+        "query": "site:{nome} inurl:& inurl:test | inurl:& inurl:quiz | inurl:& inurl:survey | inurl:& inurl:game | inurl:& inurl:competition | inurl:& inurl:form | inurl:& inurl:title | inurl:& inurl:search | inurl:& inurl:city | inurl:& inurl:date | inurl:& inurl:topic",
+        "description": "Finds search queries with specific keywords."
+    },
+    {
+        "category": "Dynamic PHP Parameters",
+        "query": "site:{nome} .php?cat= | .php?id= | .php?item= | .php?prod= | .php?product= | .php?view= | .php?file= | .php?section=",
+        "description": "Finds dynamic PHP pages with common query parameters."
+    },
+    {
+        "category": "File Upload Directories",
+        "query": "site:{nome} \"Parent Directory\" \"Last modified\" upload | inurl:upload filetype:html | inurl:upload filetype:php",
+        "description": "Finds file upload directories or pages."
+    },
+    {
+        "category": "Configuration Files",
+        "query": "site:{nome} inurl:config.php | inurl:settings.php | inurl:env.php | inurl:db.php | inurl:database.php",
+        "description": "Finds configuration files with sensitive information."
+    },
+    {
+        "category": "Backup Files",
+        "query": "site:{nome} inurl:backup.sql | inurl:backup.zip | inurl:backup.tar.gz | inurl:backup.bak",
+        "description": "Finds backup files containing sensitive data."
+    },
+    {
+        "category": "Error Pages",
+        "query": "site:{nome} intitle:\"404 Not Found\" | intitle:\"500 Internal Server Error\" | intitle:\"Error\" | intext:\"An error occurred\"",
+        "description": "Finds error pages that may expose server details."
+    },
+    {
+        "category": "Exposed Directories",
+        "query": "site:{nome} intitle:\"Index of\" | intitle:\"Directory Listing\" | intitle:\"Parent Directory\" | intitle:\"Apache Server at\"",
+        "description": "Finds exposed directories with directory listings."
+    },
+    {
+        "category": "Log Files",
+        "query": "site:{nome} filetype:log | inurl:access.log | inurl:error.log | inurl:debug.log",
+        "description": "Finds log files that may contain sensitive information."
+    },
+    {
+        "category": "SQL Injection Vulnerabilities",
+        "query": "site:{nome} inurl:.php?id= | inurl:.php?cat= | inurl:.php?item= | inurl:.php?prod= | inurl:.php?product= | inurl:.php?view=",
+        "description": "Finds potential SQL injection vulnerabilities in PHP pages."
+    },
+    {
+        "category": "WordPress Admin Pages",
+        "query": "site:{nome} inurl:/wp-admin/ | inurl:/wp-login.php | inurl:/admin-ajax.php | inurl:/wp-json/",
+        "description": "Finds WordPress admin pages or endpoints."
+    },
+    {
+        "category": "Drupal Admin Pages",
+        "query": "site:{nome} inurl:/user/login | inurl:/admin/content | inurl:/node/add",
+        "description": "Finds Drupal admin pages or login forms."
+    },
+    {
+        "category": "Joomla Admin Pages",
+        "query": "site:{nome} inurl:/administrator/ | inurl:/joomla/administrator/",
+        "description": "Finds Joomla admin pages or login forms."
+    },
+    {
+        "category": "PHP Info Pages",
+        "query": "site:{nome} inurl:phpinfo.php | intext:\"PHP Version\" | intext:\"Loaded Configuration File\"",
+        "description": "Finds PHP info pages exposing server configurations."
+    },
+    {
+        "category": "Open Redirects",
+        "query": "site:{nome} inurl:redirect.php?url= | inurl:redirect.php?link= | inurl:out.php?url= | inurl:go.php?url=",
+        "description": "Finds open redirect vulnerabilities."
+    },
+    {
+        "category": "Sensitive Documents",
+        "query": "site:{nome} filetype:doc | filetype:docx | filetype:xls | filetype:xlsx | filetype:ppt | filetype:pptx",
+        "description": "Finds sensitive documents such as Word, Excel, or PowerPoint files."
+    },
+    {
+        "category": "PDF Files",
+        "query": "site:{nome} filetype:pdf | inurl:manual.pdf | inurl:guide.pdf | inurl:report.pdf",
+        "description": "Finds PDF files that may contain sensitive information."
+    },
+    {
+        "category": "Database Exports",
+        "query": "site:{nome} filetype:sql | inurl:dump.sql | inurl:export.sql | inurl:database.sql",
+        "description": "Finds database export files."
+    },
+    {
+        "category": "Exposed Git Repositories",
+        "query": "site:{nome} inurl:.git/HEAD | inurl:.git/config | inurl:.git/index",
+        "description": "Finds exposed Git repositories."
+    },
+    {
+        "category": "SSH Keys",
+        "query": "site:{nome} filetype:key | intext:\"-----BEGIN RSA PRIVATE KEY-----\" | intext:\"-----BEGIN OPENSSH PRIVATE KEY-----\"",
+        "description": "Finds SSH private keys."
+    },
+    {
+        "category": "API Endpoints",
+        "query": "site:{nome} inurl:/api/ | inurl:/v1/ | inurl:/v2/ | inurl:/rest/",
+        "description": "Finds API endpoints that may expose sensitive data."
+    },
+    {
+        "category": "JWT Tokens",
+        "query": "site:{nome} intext:\"Bearer\" | intext:\"Authorization: Bearer\" | intext:\"jwt\"",
+        "description": "Finds JWT tokens or references to them."
+    },
+    {
+        "category": "Debugging Pages",
+        "query": "site:{nome} intext:\"DEBUG MODE\" | intext:\"Debug Information\" | intext:\"Stack Trace\"",
+        "description": "Finds debugging pages that may expose sensitive information."
+    },
+    {
+        "category": "Web Shells",
+        "query": "site:{nome} inurl:shell.php | inurl:cmd.php | inurl:r57.php | inurl:c99.php",
+        "description": "Finds web shells that may allow unauthorized access."
+    },
+    {
+        "category": "Exposed Credentials",
+        "query": "site:{nome} intext:\"username\" & intext:\"password\" | intext:\"credentials\" | intext:\"login\"",
+        "description": "Finds pages containing exposed credentials."
+    },
+    {
+        "category": "Server Status Pages",
+        "query": "site:{nome} inurl:/server-status | inurl:/status | inurl:/stats",
+        "description": "Finds server status pages that may expose server details."
+    },
+    {
+        "category": "Monitoring Tools",
+        "query": "site:{nome} inurl:nagios | inurl:kibana | inurl:grafana | inurl:cacti | inurl:munin",
+        "description": "Finds monitoring tools like Nagios, Kibana, Grafana, Cacti, or Munin."
+    },
+    {
+        "category": "Exposed Dashboards",
+        "query": "site:{nome} intitle:\"Dashboard\" | intitle:\"Admin Dashboard\" | intitle:\"Control Panel\"",
+        "description": "Finds exposed dashboards or control panels."
+    },
+    {
+        "category": "Exposed Web Applications",
+        "query": "site:{nome} intitle:\"Tomcat Manager\" | intitle:\"Jenkins\" | intitle:\"Docker\" | intitle:\"Kubernetes\"",
+        "description": "Finds exposed web applications like Tomcat, Jenkins, Docker, or Kubernetes."
+    },
+    {
+        "category": "Exposed APIs",
+        "query": "site:{nome} inurl:/swagger-ui/ | inurl:/api-docs/ | inurl:/v2/api-docs/",
+        "description": "Finds exposed API documentation or Swagger UI pages."
+    },
+    {
+        "category": "Exposed Cloud Services",
+        "query": "site:{nome} inurl:s3.amazonaws.com | inurl:storage.googleapis.com | inurl:blob.core.windows.net",
+        "description": "Finds exposed cloud storage buckets on AWS S3, Google Cloud, or Azure."
+    },
+    {
+        "category": "Exposed Network Devices",
+        "query": "site:{nome} intitle:\"Router Login\" | intitle:\"Switch Configuration\" | intitle:\"Firewall Settings\"",
+        "description": "Finds exposed network devices like routers, switches, or firewalls."
+    },
+    {
+        "category": "Exposed IoT Devices",
+        "query": "site:{nome} intitle:\"Camera Login\" | intitle:\"Printer Settings\" | intitle:\"Smart Home\"",
+        "description": "Finds exposed IoT devices like cameras, printers, or smart home systems."
+    },
+    {
+        "category": "Exposed Kubernetes Dashboards",
+        "query": "site:{nome} intitle:\"Kubernetes Dashboard\" | inurl:/api/v1/namespaces/kubernetes-dashboard/services/https:kubernetes-dashboard:/proxy/",
+        "description": "Finds exposed Kubernetes dashboards."
+    },
+    {
+        "category": "Exposed Jenkins Instances",
+        "query": "site:{nome} intitle:\"Jenkins\" | inurl:/view/all/ | inurl:/job/",
+        "description": "Finds exposed Jenkins instances or job pages."
+    },
+    {
+        "category": "Exposed Docker Registries",
+        "query": "site:{nome} inurl:/v2/_catalog | inurl:/v2/repositories/",
+        "description": "Finds exposed Docker registries."
+    },
+    {
+        "category": "Exposed Tomcat Manager",
+        "query": "site:{nome} intitle:\"Tomcat Web Application Manager\" | inurl:/manager/html",
+        "description": "Finds exposed Tomcat Manager interfaces."
+    },
+    {
+        "category": "Exposed PHPMyAdmin",
+        "query": "site:{nome} intitle:\"phpMyAdmin\" | inurl:/phpmyadmin/index.php",
+        "description": "Finds exposed phpMyAdmin interfaces."
+    },
+    {
+        "category": "Exposed Admin Panels",
+        "query": "site:{nome} intitle:\"Admin Login\" | intitle:\"Admin Panel\" | intitle:\"Control Panel\"",
+        "description": "Finds exposed admin panels or login pages."
+    },
+    {
+        "category": "Exposed File Managers",
+        "query": "site:{nome} intitle:\"File Manager\" | inurl:/filemanager/ | inurl:/elfinder/",
+        "description": "Finds exposed file manager interfaces."
+    },
+    {
+        "category": "Exposed Cloud Metadata Services",
+        "query": "site:{nome} inurl:169.254.169.254 | inurl:/latest/meta-data/",
+        "description": "Finds exposed cloud metadata services (e.g., AWS EC2 instance metadata)."
+    },
+    {
+        "category": "Exposed Terraform State Files",
+        "query": "site:{nome} filetype:tfstate | inurl:terraform.tfstate",
+        "description": "Finds exposed Terraform state files containing infrastructure details."
+    },
+    {
+        "category": "Exposed Ansible Playbooks",
+        "query": "site:{nome} filetype:yml | inurl:ansible.cfg | inurl:playbook.yml",
+        "description": "Finds exposed Ansible playbooks or configuration files."
+    },
+    {
+        "category": "Exposed Helm Charts",
+        "query": "site:{nome} inurl:Chart.yaml | inurl:values.yaml",
+        "description": "Finds exposed Helm chart configuration files."
+    },
+    {
+        "category": "Exposed Serverless Configurations",
+        "query": "site:{nome} inurl:serverless.yml | inurl:serverless.yaml",
+        "description": "Finds exposed serverless framework configuration files."
+    },
+    {
+        "category": "Exposed Secrets in Code Repositories",
+        "query": "site:{nome} intext:\"API_KEY\" | intext:\"SECRET_KEY\" | intext:\"ACCESS_TOKEN\" | intext:\"PRIVATE_KEY\"",
+        "description": "Finds exposed secrets like API keys, tokens, or private keys in code repositories."
+    },
+    {
+        "category": "Exposed Environment Variables",
+        "query": "site:{nome} filetype:env | inurl:.env | intext:\"DB_PASSWORD\" | intext:\"DATABASE_URL\"",
+        "description": "Finds exposed `.env` files or environment variable configurations."
+    },
+    {
+        "category": "Exposed Backup Scripts",
+        "query": "site:{nome} filetype:sh | inurl:backup.sh | inurl:restore.sh",
+        "description": "Finds exposed backup or restore scripts."
+    },
+    {
+        "category": "Exposed CI/CD Pipelines",
+        "query": "site:{nome} inurl:/pipelines/ | inurl:/builds/ | inurl:/jobs/",
+        "description": "Finds exposed CI/CD pipeline configurations or logs."
+    },
+    {
+        "category": "Exposed Source Maps",
+        "query": "site:{nome} filetype:map | inurl:main.map | inurl:bundle.map",
+        "description": "Finds exposed source maps that may reveal application source code."
+    },
+    {
+        "category": "Exposed GraphQL Endpoints",
+        "query": "site:{nome} inurl:/graphql | inurl:/graphiql",
+        "description": "Finds exposed GraphQL endpoints or interactive consoles."
+    },
+    {
+        "category": "Exposed WebSocket Endpoints",
+        "query": "site:{nome} inurl:ws:// | inurl:wss://",
+        "description": "Finds exposed WebSocket endpoints."
+    },
+    {
+        "category": "Exposed Prometheus Metrics",
+        "query": "site:{nome} inurl:/metrics | intext:\"HELP\" & intext:\"TYPE\"",
+        "description": "Finds exposed Prometheus metrics endpoints."
+    },
+    {
+        "category": "Exposed OpenSearch Dashboards",
+        "query": "site:{nome} intitle:\"OpenSearch Dashboards\" | inurl:/app/dashboards",
+        "description": "Finds exposed OpenSearch Dashboards."
+    },
+    {
+        "category": "Exposed ElasticSearch Indices",
+        "query": "site:{nome} inurl:/_cat/indices | inurl:/_search",
+        "description": "Finds exposed ElasticSearch indices or search endpoints."
+    },
+    {
+        "category": "Exposed Redis Instances",
+        "query": "site:{nome} intitle:\"Redis Commander\" | inurl:/redis/",
+        "description": "Finds exposed Redis instances or management interfaces."
+    },
+    {
+        "category": "Exposed Memcached Instances",
+        "query": "site:{nome} intitle:\"Memcached Stats\" | inurl:/memcached/",
+        "description": "Finds exposed Memcached instances or stats pages."
+    },
+    {
+        "category": "Exposed RabbitMQ Management",
+        "query": "site:{nome} intitle:\"RabbitMQ Management\" | inurl:/rabbitmq/",
+        "description": "Finds exposed RabbitMQ management interfaces."
+    },
+    {
+        "category": "Exposed Apache Kafka",
+        "query": "site:{nome} inurl:/kafka-manager/ | inurl:/kafka-console/",
+        "description": "Finds exposed Apache Kafka management interfaces."
+    },
+    {
+        "category": "Exposed Consul UI",
+        "query": "site:{nome} intitle:\"Consul by HashiCorp\" | inurl:/ui/",
+        "description": "Finds exposed Consul UI interfaces."
+    },
+    {
+        "category": "Exposed Vault Interfaces",
+        "query": "site:{nome} intitle:\"Vault by HashiCorp\" | inurl:/vault/ui/",
+        "description": "Finds exposed Vault interfaces."
+    },
+    {
+        "category": "Exposed MongoDB Instances",
+        "query": "site:{nome} intitle:\"MongoDB\" | inurl:/mongo-express/",
+        "description": "Finds exposed MongoDB instances or management interfaces."
+    },
+    {
+        "category": "Exposed CouchDB Instances",
+        "query": "site:{nome} intitle:\"CouchDB\" | inurl:/_utils/",
+        "description": "Finds exposed CouchDB instances or Fauxton interfaces."
+    },
+    {
+        "category": "Exposed PostgreSQL Admin Pages",
+        "query": "site:{nome} intitle:\"pgAdmin\" | inurl:/pgadmin/",
+        "description": "Finds exposed pgAdmin interfaces for PostgreSQL."
+    },
+    {
+        "category": "Exposed InfluxDB Dashboards",
+        "query": "site:{nome} intitle:\"InfluxDB\" | inurl:/chronograf/",
+        "description": "Finds exposed InfluxDB dashboards or Chronograf interfaces."
+    },
+    {
+        "category": "Exposed Grafana Dashboards",
+        "query": "site:{nome} intitle:\"Grafana\" | inurl:/grafana/login",
+        "description": "Finds exposed Grafana dashboards or login pages."
+    }
+]
