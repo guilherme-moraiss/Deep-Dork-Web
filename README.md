@@ -98,7 +98,8 @@ If you'd like to host your own version:
 ---
 
 ## License
-This project is licensed under the MIT License. See the `LICENSE` file for more details.
+
+This project is licensed under the MIT License. See the [LICENSE](LICENSE) file for more details.
 
 ---
 
